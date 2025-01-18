@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+    <style>
+        .filters {
+            display: flex;
+            align-items: center;
+            column-gap: 20px;
+        }
+
+        .comment-section {
+            max-width: 600px;
+            margin-block: 20px;
+            padding: 10px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e0e0e0;
+        }
+
+        .comment {
+            margin-bottom: 20px;
+            padding: 10px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .comment-header {
+            display: flex;
+            align-items: center;
+        }
+
+        .avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .user-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .username {
+            font-size: 16px;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .date {
+            font-size: 12px;
+            color: #777;
+        }
+
+        .comment-text {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .actions {
+            margin-top: 10px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            margin-right: 5px;
+            cursor: pointer;
+        }
+
+        .reply-btn {
+            background-color: #b98f00;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .reply-btn:hover {
+            background-color: #9e7a00;
+        }
+
+        .filters {
+            margin-bottom: 15px;
+        }
+
+        .filters input,
+        .filters select {
+            padding: 5px;
+            margin-right: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>DSA Tutorial</h1>
+        <section style="text-align: center;">
+            <nav>
+                <a href="https://www.w3schools.com/dsa/index.php">&emsp;Penjelasan Lebih Lengkap DSA Tutorial
+                    W3Schools&emsp;</a>
+                <a href="https://www.w3schools.com/dsa/dsa_intro.php">&emsp;Penjelasan Lebih Lengkap Pengantar DSA
+                    W3Schools&emsp;</a>
+                <a href="https://www.w3schools.com/dsa/dsa_algo_simple.php">&emsp;Penjelasan Lebih Lengkap Algoritma DSA
+                    Sederhana W3Schools&emsp;</a>
+            </nav>
+            <nav>
+                <a href="./index.html">&emsp;DSA Tutorial&emsp;</a>
+                <a href="#">&emsp;Pengantar DSA&emsp;</a>
+                <a href="#">&emsp;Algoritma DSA Sederhana&emsp;</a>
+            </nav>
+        </section>
+    </header>
+    <main>
+        <section>
+            <h2>Contoh DSA Mencari dan Menampilkan Data Terkecil dan Terbesar</h2>
+            <div class="comment-section">
+                <div class="filters">
+                    <span>Comment</span>
+                    <select id="sort-select">
+                        <option value="all_comment">Semua komentar</option>
+                        <option value="shortest_comment">Komentar terpendek</option>
+                        <option value="longtest_comment">Komentar terpanjang</option>
+                        <option value="latest_comment">Komentar terakhir</option>
+                        <option value="oldest_comment">Komentar petama</option>
+                    </select>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>"informasi ini bersumber dari <a href="https://www.w3schools.com/" target="_blank">w3schools</a>"
+        </p>
+    </footer>
+    <script>
+        const dataComments = [
+            {
+                "postId": 1,
+                "id": 1,
+                "name": "Eliseo Gardner",
+                "email": "Eliseo@gardner.biz",
+                "body": "Sungguh hampir tidak mungkin untuk menggambarkan kebahagiaan besar ini\ntime yang sangat dibutuhkan\ndengan rasa sakit yang hampir tidak bisa ditoleransi\nmereka datang dan memberikan harapan",
+                "avatar": "./images/profile_image_001.png",
+                "commentTime": "2 jam yang lalu"
+            },
+            {
+                "postId": 1,
+                "id": 2,
+                "name": "Jayne Kuhic",
+                "email": "Jayne_Kuhic@sydney.com",
+                "body": "Kehidupan ini penuh dengan rasa sakit dan kesulitan yang tak pernah berhenti\nterkadang kita merasa tidak bisa mengatasi semuanya\nnamun ada harapan yang selalu datang dari dalam diri kita\nuntuk melawan semua rasa sakit tersebut",
+                "avatar": "./images/profile_image_002.jpg",
+                "commentTime": "3 jam yang lalu"
+            },
+            {
+                "postId": 1,
+                "id": 3,
+                "name": "Nikita Garfield",
+                "email": "Nikita@garfield.biz",
+                "body": "Terkadang kita merasa terjebak dalam kebingungan, seolah-olah dunia di sekitar kita menjadi kabur dan tidak ada jalan keluar yang terlihat. Ketika rasa cemas mulai menguasai pikiran, kita merasa terpojok dan tidak tahu harus berbuat apa. Namun, meskipun situasi tersebut tampak suram, selalu ada waktu untuk mencari jalan keluar. Dalam setiap tantangan yang datang, ada kesempatan untuk belajar dan berkembang, serta menemukan arah yang lebih baik. Dengan kekuatan dan ketekunan yang kita miliki, meskipun terkadang langkah kita terasa berat dan penuh keraguan, kita bisa terus maju dan berjuang untuk mengatasi hambatan. Setiap masalah yang kita hadapi, tak peduli sebesar apapun itu, selalu memiliki solusi yang menunggu untuk ditemukan. Ketika kita bersedia untuk berpikir lebih jernih, mencari perspektif baru, dan tidak mudah menyerah, kita akan menemukan jalan keluar yang lebih cerah. Maka, jangan biarkan kebingungan menguasai, karena dengan usaha dan keyakinan, kita mampu mengatasi segala kesulitan yang datang dalam kehidupan ini.",
+                "avatar": "./images/profile_image_003.jpg",
+                "commentTime": "10 jam yang lalu"
+            },
+            {
+                "postId": 1,
+                "id": 4,
+                "name": "Lew Alysha",
+                "email": "Lew@alysha.tv",
+                "body": "Tidak ada yang lebih penting dari menjaga ketenangan pikiran kita\nmeskipun banyak rintangan yang kita hadapi dalam hidup ini\nkita harus terus melangkah dan memperjuangkan impian kita\nkarena itu adalah bagian dari perjalanan hidup",
+                "avatar": "./images/profile_image_004.jpg",
+                "commentTime": "20 jam yang lalu"
+            },
+            {
+                "postId": 1,
+                "id": 5,
+                "name": "Hayden Althea",
+                "email": "Hayden@althea.biz",
+                "body": "Good",
+                "avatar": "./images/profile_image_005.jpg",
+                "commentTime": "1 hari yang lalu"
+            },
+            {
+                "postId": 1,
+                "id": 5,
+                "name": "Eren Yaegar",
+                "email": "Eren@yaegar.biz",
+                "body": "Hal-hal ini sangat sulit untuk dimengerti\nsetiap hari ada tantangan baru yang kita hadapi\ntapi kita selalu belajar untuk lebih kuat dan lebih baik\nsetiap kali kita menghadapinya dengan penuh keyakinan dan keberanian",
+                "avatar": "./images/profile_image_006.jpg",
+                "commentTime": "4 hari yang lalu"
+            }
+        ];
+
+        const createComponentComment = (parentElement, src, username, date, commentText) => {
+            const divElement = document.createElement('div');
+            divElement.classList.add('comment');
+            divElement.setAttribute('data-date', date);  // Menetapkan tanggal dinamis
+            divElement.innerHTML = `        
+        <div class="comment-header">
+            <img class="avatar" src="${src}" alt="Avatar">
+            <div class="user-info">
+                <h4 class="username">${username}</h4>
+                <p class="date">${date}</p>
+            </div>
+        </div>
+        <p class="comment-text">${commentText}</p>
+        <div class="actions">
+            <button class="reply-btn">Balas</button>
+            <button class="like-btn">Suka</button>
+        </div>`;
+            parentElement.appendChild(divElement);
+            return divElement;
+        }
+
+        const getSortSelected = () => {
+            return document.getElementById('sort-select');
+        }
+
+        const getCommentsContainer = () => {
+            return document.getElementById('comments-container');
+        }
+
+        const displayComponentComment = () => {
+            getCommentsContainer().innerHTML = '';
+            if (getSortSelected().querySelectorAll('option')[0].value === 'all_comment') {
+                dataComments.forEach((dataComment) => {
+                    createComponentComment(getCommentsContainer(), dataComment.avatar, dataComment.name, dataComment.commentTime, dataComment.body);
+                });
+            }
+        }
+
+        const findAndDisplayMinComponentComment = () => {
+            let dataCommentsBody = [];
+            let minDataComment = dataComments[0];
+
+            dataComments.forEach((dataComment) => {
+                dataCommentsBody.push(dataComment.body);
+            });
+
+            let minDataCommentBody = dataCommentsBody[0];
+            for (let i = 1; i < dataCommentsBody.length; i++) {
+                if (dataCommentsBody[i].length < minDataCommentBody.length) {
+                    minDataCommentBody = dataCommentsBody[i];
+                    minDataComment = dataComments[i];
+                }
+            }
+
+            getCommentsContainer().innerHTML = '';
+            createComponentComment(
+                getCommentsContainer(),
+                minDataComment.avatar,
+                minDataComment.name,
+                minDataComment.commentTime,
+                minDataCommentBody
+            );
+        }
+
+        const findAndDisplayMaxComponentComment = () => {
+            let dataCommentsBody = [];
+            let maxDataComment = dataComments[0];
+
+            // Mengisi array dataCommentsBody dengan body dari setiap komentar
+            dataComments.forEach((dataComment) => {
+                dataCommentsBody.push(dataComment.body);
+            });
+
+            // Menyimpan body komentar pertama sebagai komentar terpanjang sementara
+            let maxDataCommentBody = dataCommentsBody[0];
+
+            // Melakukan loop mulai dari indeks 1 untuk mencari komentar terpanjang
+            for (let i = 1; i < dataCommentsBody.length; i++) {
+                // Jika panjang body komentar lebih panjang dari yang sebelumnya, perbarui maxDataComment
+                if (dataCommentsBody[i].length > maxDataCommentBody.length) {
+                    maxDataCommentBody = dataCommentsBody[i];
+                    maxDataComment = dataComments[i];
+                }
+            }
+
+            // Membersihkan kontainer komentar sebelum menambahkan yang baru
+            getCommentsContainer().innerHTML = '';
+
+            // Menampilkan komentar terpanjang di dalam kontainer
+            createComponentComment(
+                getCommentsContainer(),
+                maxDataComment.avatar,
+                maxDataComment.name,
+                maxDataComment.commentTime,
+                maxDataCommentBody
+            );
+        }
+
+        const findAndDisplayLatestComponentComment = () => {
+            // Mengonversi waktu komentar ke detik
+            let convertToSeconds = (timeString) => {
+                let timeValue = parseInt(timeString);
+                let timeUnit = timeString.match(/[a-zA-Z]+/)[0];
+
+                if (timeUnit === 'detik') {
+                    return timeValue;
+                } else if (timeUnit === 'menit') {
+                    return timeValue * 60;
+                } else if (timeUnit === 'jam') {
+                    return timeValue * 60 * 60;
+                } else if (timeUnit === 'hari') {
+                    return timeValue * 60 * 60 * 24;
+                } else {
+                    return 0;  // Jika unit tidak dikenali, return 0
+                }
+            };
+
+            let dataCommentsTime = [];
+            let minDataComment = convertToSeconds(dataComments[0].commentTime);
+
+            // Loop untuk memproses data komentar
+            dataComments.forEach((dataComment) => {
+                let commentTimeInSeconds = convertToSeconds(dataComment.commentTime);
+                dataCommentsTime.push(commentTimeInSeconds);
+            });
+
+            // Menemukan komentar dengan waktu terlama
+            let minDataCommentIndex = 0;
+            for (let i = 1; i < dataCommentsTime.length; i++) {
+                if (dataCommentsTime[i] < dataCommentsTime[minDataCommentIndex]) {
+                    minDataCommentIndex = i;
+                }
+            }
+
+            // Menampilkan komentar dengan waktu terlama
+            getCommentsContainer().innerHTML = '';
+            createComponentComment(
+                getCommentsContainer(),
+                dataComments[minDataCommentIndex].avatar,
+                dataComments[minDataCommentIndex].name,
+                dataComments[minDataCommentIndex].commentTime,
+                dataComments[minDataCommentIndex].body
+            );
+        }
+
+        const findAndDisplayOldtestComponentComment = () => {
+            // Mengonversi waktu komentar ke detik
+            let convertToSeconds = (timeString) => {
+                let timeValue = parseInt(timeString);
+                let timeUnit = timeString.match(/[a-zA-Z]+/)[0];
+
+                if (timeUnit === 'detik') {
+                    return timeValue;
+                } else if (timeUnit === 'menit') {
+                    return timeValue * 60;
+                } else if (timeUnit === 'jam') {
+                    return timeValue * 60 * 60;
+                } else if (timeUnit === 'hari') {
+                    return timeValue * 60 * 60 * 24;
+                } else {
+                    return 0;  // Jika unit tidak dikenali, return 0
+                }
+            };
+
+            let dataCommentsTime = [];
+            let minDataComment = convertToSeconds(dataComments[0].commentTime);
+
+            // Loop untuk memproses data komentar
+            dataComments.forEach((dataComment) => {
+                let commentTimeInSeconds = convertToSeconds(dataComment.commentTime);
+                dataCommentsTime.push(commentTimeInSeconds);
+            });
+
+            // Menemukan komentar dengan waktu terlama
+            let minDataCommentIndex = 0;
+            for (let i = 1; i < dataCommentsTime.length; i++) {
+                if (dataCommentsTime[i] > dataCommentsTime[minDataCommentIndex]) {
+                    minDataCommentIndex = i;
+                }
+            }
+
+            // Menampilkan komentar dengan waktu terlama
+            getCommentsContainer().innerHTML = '';
+            createComponentComment(
+                getCommentsContainer(),
+                dataComments[minDataCommentIndex].avatar,
+                dataComments[minDataCommentIndex].name,
+                dataComments[minDataCommentIndex].commentTime,
+                dataComments[minDataCommentIndex].body
+            );
+        }
+
+        getSortSelected().addEventListener('change', () => {
+            if (getSortSelected().value === 'all_comment') {
+                displayComponentComment();
+            } else if (getSortSelected().value === 'shortest_comment') {
+                findAndDisplayMinComponentComment();
+            } else if (getSortSelected().value === 'longtest_comment') {
+                findAndDisplayMaxComponentComment();
+            } else if (getSortSelected().value === 'latest_comment') {
+                findAndDisplayLatestComponentComment();
+            } else {
+                findAndDisplayOldtestComponentComment();
+            }
+        });
+
+        window.addEventListener('load', () => {
+            displayComponentComment();
+        });
+    </script>
+</body>
+
+</html>
