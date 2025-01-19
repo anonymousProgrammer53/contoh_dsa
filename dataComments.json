@@ -1,0 +1,56 @@
+[
+    {
+        "postId": 1,
+        "id": 1,
+        "name": "Eliseo Gardner",
+        "email": "Eliseo@gardner.biz",
+        "body": "Sungguh hampir tidak mungkin untuk menggambarkan kebahagiaan besar ini\ntime yang sangat dibutuhkan\ndengan rasa sakit yang hampir tidak bisa ditoleransi\nmereka datang dan memberikan harapan",
+        "avatar": "./images/profile_image_001.png",
+        "commentTime": "2 jam yang lalu"
+    },
+    {
+        "postId": 1,
+        "id": 2,
+        "name": "Jayne Kuhic",
+        "email": "Jayne_Kuhic@sydney.com",
+        "body": "Kehidupan ini penuh dengan rasa sakit dan kesulitan yang tak pernah berhenti\nterkadang kita merasa tidak bisa mengatasi semuanya\nnamun ada harapan yang selalu datang dari dalam diri kita\nuntuk melawan semua rasa sakit tersebut",
+        "avatar": "./images/profile_image_002.jpg",
+        "commentTime": "3 jam yang lalu"
+    },
+    {
+        "postId": 1,
+        "id": 3,
+        "name": "Nikita Garfield",
+        "email": "Nikita@garfield.biz",
+        "body": "Terkadang kita merasa terjebak dalam kebingungan, seolah-olah dunia di sekitar kita menjadi kabur dan tidak ada jalan keluar yang terlihat. Ketika rasa cemas mulai menguasai pikiran, kita merasa terpojok dan tidak tahu harus berbuat apa. Namun, meskipun situasi tersebut tampak suram, selalu ada waktu untuk mencari jalan keluar. Dalam setiap tantangan yang datang, ada kesempatan untuk belajar dan berkembang, serta menemukan arah yang lebih baik. Dengan kekuatan dan ketekunan yang kita miliki, meskipun terkadang langkah kita terasa berat dan penuh keraguan, kita bisa terus maju dan berjuang untuk mengatasi hambatan. Setiap masalah yang kita hadapi, tak peduli sebesar apapun itu, selalu memiliki solusi yang menunggu untuk ditemukan. Ketika kita bersedia untuk berpikir lebih jernih, mencari perspektif baru, dan tidak mudah menyerah, kita akan menemukan jalan keluar yang lebih cerah. Maka, jangan biarkan kebingungan menguasai, karena dengan usaha dan keyakinan, kita mampu mengatasi segala kesulitan yang datang dalam kehidupan ini.",
+        "avatar": "./images/profile_image_003.jpg",
+        "commentTime": "10 jam yang lalu"
+    },
+    {
+        "postId": 1,
+        "id": 4,
+        "name": "Lew Alysha",
+        "email": "Lew@alysha.tv",
+        "body": "Tidak ada yang lebih penting dari menjaga ketenangan pikiran kita\nmeskipun banyak rintangan yang kita hadapi dalam hidup ini\nkita harus terus melangkah dan memperjuangkan impian kita\nkarena itu adalah bagian dari perjalanan hidup",
+        "avatar": "./images/profile_image_004.jpg",
+        "commentTime": "20 jam yang lalu"
+    },
+    {
+        "postId": 1,
+        "id": 5,
+        "name": "Hayden Althea",
+        "email": "Hayden@althea.biz",
+        "body": "Good",
+        "avatar": "./images/profile_image_005.jpg",
+        "commentTime": "1 hari yang lalu"
+    },
+    {
+        "postId": 1,
+        "id": 5,
+        "name": "Eren Yaegar",
+        "email": "Eren@yaegar.biz",
+        "body": "Hal-hal ini sangat sulit untuk dimengerti\nsetiap hari ada tantangan baru yang kita hadapi\ntapi kita selalu belajar untuk lebih kuat dan lebih baik\nsetiap kali kita menghadapinya dengan penuh keyakinan dan keberanian",
+        "avatar": "./images/profile_image_006.jpg",
+        "commentTime": "4 hari yang lalu"
+    }
+]
