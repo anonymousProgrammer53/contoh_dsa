@@ -396,27 +396,44 @@
                 });
         }
 
-        // menambahkan event listener untuk mendeteksi perubahan nilai pada fungsi getSortSelected()
-        getSortSelected().addEventListener('change', () => {
-            if (getSortSelected().value === 'all_comment') {
+        // Fungsi untuk menyesuaikan tampilan berdasarkan nilai yang disimpan di localStorage
+        const handleSortSelection = (value) => {
+            if (value === 'all_comment') {
                 displayComponentComment();
-            } else if (getSortSelected().value === 'shortest_comment') {
+            } else if (value === 'shortest_comment') {
                 findAndDisplayMinComponentComment();
-            } else if (getSortSelected().value === 'longtest_comment') {
+            } else if (value === 'longtest_comment') {
                 findAndDisplayMaxComponentComment();
-            } else if (getSortSelected().value === 'latest_comment') {
+            } else if (value === 'latest_comment') {
                 findAndDisplayLatestComponentComment();
             } else {
                 findAndDisplayOldestComponentComment();
             }
-        });
+        }
 
-        // Menambahkan event listener untuk memanggil fungsi saat halaman selesai dimuat
+        // Menangani pemuatan halaman
         window.addEventListener('load', () => {
-            // memanggil fungsi displayComponentComment()
-            displayComponentComment();
+            // Mengecek apakah ada nilai yang tersimpan di localStorage
+            const savedSortValue = localStorage.getItem('sortValue');
+            if (savedSortValue) {
+                // Menyesuaikan dropdown dengan nilai yang ada di localStorage
+                getSortSelected().value = savedSortValue;
+                // Memanggil fungsi yang sesuai berdasarkan nilai yang disimpan
+                handleSortSelection(savedSortValue);
+            } else {
+                // Jika tidak ada nilai yang disimpan, panggil fungsi default
+                displayComponentComment();
+            }
         });
 
+        // Menambahkan event listener untuk mendeteksi perubahan nilai pada fungsi getSortSelected()
+        getSortSelected().addEventListener('change', () => {
+            // Menyimpan nilai yang dipilih ke dalam localStorage
+            localStorage.setItem('sortValue', getSortSelected().value);
+
+            // Menjalankan fungsi yang sesuai dengan nilai yang dipilih
+            handleSortSelection(getSortSelected().value);
+        });
     </script>
 </body>
 
