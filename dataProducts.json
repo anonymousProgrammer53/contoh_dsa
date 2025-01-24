@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "name": "kaca mata",
+    "name": "Kaca Mata",
     "price": 750000,
     "dprice": 450000,
     "qty": 150,
@@ -11,7 +11,7 @@
   },
   {
     "id": 2,
-    "name": "sepatu",
+    "name": "Sepatu",
     "price": 850000,
     "dprice": 550000,
     "qty": 100,
@@ -21,7 +21,7 @@
   },
   {
     "id": 3,
-    "name": "jam tangan",
+    "name": "Jam Tangan",
     "price": 1200000,
     "dprice": 800000,
     "qty": 90,
