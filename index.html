@@ -5,101 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>contoh dsa</title>
-    <style>
-        .filters {
-            display: flex;
-            align-items: center;
-            column-gap: 20px;
-        }
-
-        .comment-section {
-            max-width: 600px;
-            margin-block: 20px;
-            padding: 10px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border: 1px solid #e0e0e0;
-        }
-
-        .comment {
-            margin-bottom: 20px;
-            padding: 10px;
-            border-bottom: 1px solid #e0e0e0;
-        }
-
-        .comment-header {
-            display: flex;
-            align-items: center;
-        }
-
-        .avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            margin-right: 10px;
-            border: 1px solid #e0e0e0;
-        }
-
-        .user-info {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .username {
-            font-size: 16px;
-            font-weight: bold;
-            margin: 0;
-        }
-
-        .date {
-            font-size: 12px;
-            color: #777;
-        }
-
-        .comment-text {
-            margin-top: 10px;
-            font-size: 14px;
-            color: #333;
-        }
-
-        .actions {
-            margin-top: 10px;
-        }
-
-        button {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            padding: 5px 10px;
-            margin-right: 5px;
-            cursor: pointer;
-        }
-
-        .reply-btn {
-            background-color: #b98f00;
-        }
-
-        button:hover {
-            background-color: #0056b3;
-        }
-
-        .reply-btn:hover {
-            background-color: #9e7a00;
-        }
-
-        .filters {
-            margin-bottom: 15px;
-        }
-
-        .filters input,
-        .filters select {
-            padding: 5px;
-            margin-right: 10px;
-            border-radius: 5px;
-        }
-    </style>
+    <link href="./style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -125,7 +31,7 @@
             <div class="comment-section">
                 <div class="filters">
                     <span>Comment</span>
-                    <select id="sort-select">
+                    <select>
                         <option value="all_comment">Semua komentar</option>
                         <option value="shortest_comment">Komentar terpendek</option>
                         <option value="longtest_comment">Komentar terpanjang</option>
@@ -135,6 +41,21 @@
                 </div>
                 <div id="comments-container"></div>
             </div>
+        </section>
+        <section style="margin-bottom: 2rem;">
+            <h2>Contoh DSA Mencari dan Menampilkan Data Produk Terkecil dan Terbesar</h2>
+            <div class="product-section">
+                <div class="filters">
+                    <span>Produk</span>
+                    <select>
+                        <option value="all_product">Semua product</option>
+                        <option value="cheapest_price">Harga termurah</option>
+                        <option value="lowest_discount">Diskon terendah</option>
+                        <option value="lowest_stock">Stok paling sedikit</option>
+                        <option value="lowest_sales">Penjualan terendah</option>
+                    </select>
+                </div>
+                <div id="products-container" class="product-container"></div>
         </section>
         <section style="text-align: center; margin-bottom: 2rem;">
             <nav>
@@ -149,292 +70,8 @@
         <p>"informasi ini bersumber dari <a href="https://www.w3schools.com/" target="_blank">w3schools</a>"
         </p>
     </footer>
-    <script>
-        // fungsi untuk membuat komponen komentar
-        const createComponentComment = (parentElement, src, username, date, commentText) => {
-            const divElement = document.createElement('div');
-            divElement.classList.add('comment');
-            divElement.setAttribute('data-date', date);  // Menetapkan tanggal dinamis
-            divElement.innerHTML = `        
-        <div class="comment-header">
-            <img class="avatar" src="${src}" alt="Avatar">
-            <div class="user-info">
-                <h4 class="username">${username}</h4>
-                <p class="date">${date}</p>
-            </div>
-        </div>
-        <p class="comment-text">${commentText}</p>
-        <div class="actions">
-            <button class="reply-btn">Balas</button>
-            <button class="like-btn">Suka</button>
-        </div>`;
-            parentElement.appendChild(divElement);
-            return divElement;
-        }
-
-        // fungsi untuk mengambil element yang mempunyai id sort-select
-        const getSortSelected = () => {
-            return document.getElementById('sort-select');
-        }
-
-        // fungsi untuk mengambil element yang mempunyai id comments-container
-        const getCommentsContainer = () => {
-            return document.getElementById('comments-container');
-        }
-
-        // fungsi untuk menampilkan komponen komentar
-        const displayComponentComment = () => {
-            getCommentsContainer().innerHTML = '';
-            if (getSortSelected().querySelectorAll('option')[0].value === 'all_comment') {
-                fetch('./dataComments.json')
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error('Network response was not ok');
-                        }
-                        return response.json();
-                    })
-                    .then(dataComments => {
-                        dataComments.forEach((dataComment) => {
-                            createComponentComment(getCommentsContainer(), dataComment.avatar, dataComment.name, dataComment.commentTime, dataComment.body);
-                        });
-                    })
-                    .catch(error => {
-                        console.error('Error in promise chain:', error);
-                    });
-            }
-        }
-
-        // fungsi untuk mencari dan menampilkan komponen komentar paling pendek
-        const findAndDisplayMinComponentComment = () => {
-            fetch('./dataComments.json')
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
-                    return response.json();
-                })
-                .then(dataComments => {
-                    let dataCommentsBody = [];
-                    let minDataComment = dataComments[0];
-
-                    dataComments.forEach((dataComment) => {
-                        dataCommentsBody.push(dataComment.body);
-                    });
-
-                    let minDataCommentBody = dataCommentsBody[0];
-                    for (let i = 1; i < dataCommentsBody.length; i++) {
-                        if (dataCommentsBody[i].length < minDataCommentBody.length) {
-                            minDataCommentBody = dataCommentsBody[i];
-                            minDataComment = dataComments[i];
-                        }
-                    }
-
-                    getCommentsContainer().innerHTML = '';
-                    createComponentComment(
-                        getCommentsContainer(),
-                        minDataComment.avatar,
-                        minDataComment.name,
-                        minDataComment.commentTime,
-                        minDataCommentBody
-                    );
-                })
-                .catch(error => {
-                    console.error('Error in promise chain:', error);
-                });
-        }
-
-        // fungsi untuk mencari dan menampilkan komponen komentar paling panjang
-        const findAndDisplayMaxComponentComment = () => {
-            fetch('./dataComments.json')
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
-                    return response.json();
-                })
-                .then(dataComments => {
-                    let dataCommentsBody = [];
-                    let maxDataComment = dataComments[0];
-
-                    dataComments.forEach((dataComment) => {
-                        dataCommentsBody.push(dataComment.body);
-                    });
-
-                    let maxDataCommentBody = dataCommentsBody[0];
-                    for (let i = 1; i < dataCommentsBody.length; i++) {
-                        if (dataCommentsBody[i].length > maxDataCommentBody.length) {
-                            maxDataCommentBody = dataCommentsBody[i];
-                            maxDataComment = dataComments[i];
-                        }
-                    }
-
-                    getCommentsContainer().innerHTML = '';
-                    createComponentComment(
-                        getCommentsContainer(),
-                        maxDataComment.avatar,
-                        maxDataComment.name,
-                        maxDataComment.commentTime,
-                        maxDataCommentBody
-                    );
-                })
-                .catch(error => {
-                    console.error('Error in promise chain:', error);
-                });
-        }
-
-        // fungsi untuk mencari dan menampilkan komponen komentar terakhir
-        const findAndDisplayLatestComponentComment = () => {
-            // mengonversi waktu komentar ke detik
-            let convertToSeconds = (timeString) => {
-                let timeValue = parseInt(timeString);
-                let timeUnit = timeString.match(/[a-zA-Z]+/)[0];
-
-                if (timeUnit === 'detik') {
-                    return timeValue;
-                } else if (timeUnit === 'menit') {
-                    return timeValue * 60;
-                } else if (timeUnit === 'jam') {
-                    return timeValue * 60 * 60;
-                } else if (timeUnit === 'hari') {
-                    return timeValue * 60 * 60 * 24;
-                } else {
-                    return 0;  // jika unit tidak dikenali, return 0
-                }
-            };
-
-            fetch('./dataComments.json')
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
-                    return response.json();
-                })
-                .then(dataComments => {
-                    let dataCommentsTime = [];
-                    let minDataComment = convertToSeconds(dataComments[0].commentTime);
-
-                    dataComments.forEach((dataComment) => {
-                        let commentTimeInSeconds = convertToSeconds(dataComment.commentTime);
-                        dataCommentsTime.push(commentTimeInSeconds);
-                    });
-
-                    let minDataCommentIndex = 0;
-                    for (let i = 1; i < dataCommentsTime.length; i++) {
-                        if (dataCommentsTime[i] < dataCommentsTime[minDataCommentIndex]) {
-                            minDataCommentIndex = i;
-                        }
-                    }
-
-                    getCommentsContainer().innerHTML = '';
-                    createComponentComment(
-                        getCommentsContainer(),
-                        dataComments[minDataCommentIndex].avatar,
-                        dataComments[minDataCommentIndex].name,
-                        dataComments[minDataCommentIndex].commentTime,
-                        dataComments[minDataCommentIndex].body
-                    );
-                })
-                .catch(error => {
-                    console.error('Error in promise chain:', error);
-                });
-        }
-
-        // fungsi untuk mencari dan menampilkan komponen komentar pertama
-        const findAndDisplayOldestComponentComment = () => {
-            // mengonversi waktu komentar ke detik
-            let convertToSeconds = (timeString) => {
-                let timeValue = parseInt(timeString);
-                let timeUnit = timeString.match(/[a-zA-Z]+/)[0];
-
-                if (timeUnit === 'detik') {
-                    return timeValue;
-                } else if (timeUnit === 'menit') {
-                    return timeValue * 60;
-                } else if (timeUnit === 'jam') {
-                    return timeValue * 60 * 60;
-                } else if (timeUnit === 'hari') {
-                    return timeValue * 60 * 60 * 24;
-                } else {
-                    return 0;  // jika unit tidak dikenali, return 0
-                }
-            };
-
-            fetch('./dataComments.json')
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
-                    return response.json();
-                })
-                .then(dataComments => {
-                    let dataCommentsTime = [];
-                    let maxDataComment = convertToSeconds(dataComments[0].commentTime);
-
-                    dataComments.forEach((dataComment) => {
-                        let commentTimeInSeconds = convertToSeconds(dataComment.commentTime);
-                        dataCommentsTime.push(commentTimeInSeconds);
-                    });
-
-                    let maxDataCommentIndex = 0;
-                    for (let i = 1; i < dataCommentsTime.length; i++) {
-                        if (dataCommentsTime[i] > dataCommentsTime[maxDataCommentIndex]) {
-                            maxDataCommentIndex = i;
-                        }
-                    }
-
-                    getCommentsContainer().innerHTML = '';
-                    createComponentComment(
-                        getCommentsContainer(),
-                        dataComments[maxDataCommentIndex].avatar,
-                        dataComments[maxDataCommentIndex].name,
-                        dataComments[maxDataCommentIndex].commentTime,
-                        dataComments[maxDataCommentIndex].body
-                    );
-                })
-                .catch(error => {
-                    console.error('Error in promise chain:', error);
-                });
-        }
-
-        // Fungsi untuk menyesuaikan tampilan berdasarkan nilai yang disimpan di localStorage
-        const handleSortSelection = (value) => {
-            if (value === 'all_comment') {
-                displayComponentComment();
-            } else if (value === 'shortest_comment') {
-                findAndDisplayMinComponentComment();
-            } else if (value === 'longtest_comment') {
-                findAndDisplayMaxComponentComment();
-            } else if (value === 'latest_comment') {
-                findAndDisplayLatestComponentComment();
-            } else {
-                findAndDisplayOldestComponentComment();
-            }
-        }
-
-        // Menangani pemuatan halaman
-        window.addEventListener('load', () => {
-            // Mengecek apakah ada nilai yang tersimpan di localStorage
-            const savedSortValue = localStorage.getItem('sortValue');
-            if (savedSortValue) {
-                // Menyesuaikan dropdown dengan nilai yang ada di localStorage
-                getSortSelected().value = savedSortValue;
-                // Memanggil fungsi yang sesuai berdasarkan nilai yang disimpan
-                handleSortSelection(savedSortValue);
-            } else {
-                // Jika tidak ada nilai yang disimpan, panggil fungsi default
-                displayComponentComment();
-            }
-        });
-
-        // Menambahkan event listener untuk mendeteksi perubahan nilai pada fungsi getSortSelected()
-        getSortSelected().addEventListener('change', () => {
-            // Menyimpan nilai yang dipilih ke dalam localStorage
-            localStorage.setItem('sortValue', getSortSelected().value);
-
-            // Menjalankan fungsi yang sesuai dengan nilai yang dipilih
-            handleSortSelection(getSortSelected().value);
-        });
-    </script>
+    <script src="./script.js"></script>
+    <script src="./script2.js"></script>
 </body>
 
 </html>
