@@ -39,6 +39,7 @@ header>nav {
     align-items: center;
     margin-top: 1rem;
     row-gap: 0.5rem;
+    text-align: center;
 }
 
 header>nav>section {
@@ -97,7 +98,7 @@ header>nav>section {
 }
 
 .select-comment {
-    padding: 0.25rem;
+    padding: 0.5rem;
     border-radius: 0.5rem;
     margin-inline: 1rem;
     font-size: 13px;
@@ -317,4 +318,11 @@ header>nav>section {
         transform: scale(1);
         opacity: 0;
     }
+}
+
+footer {
+    max-width: 768px;
+    margin-inline: auto;
+    padding: 2rem;
+    text-align: center;
 }
