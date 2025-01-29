@@ -1,58 +1,85 @@
+// Fungsi untuk mendapatkan elemen dengan class 'comment-container' yang digunakan untuk menampilkan komentar
 const getComponentCommentContainer = () => {
-  return document.querySelector('.comment-container');
+  return document.querySelector('.comment-container'); // Mengambil elemen dengan class 'comment-container'
 }
 
+// Fungsi untuk mendapatkan elemen dengan class 'select-comment' yang digunakan untuk memilih jenis komentar
 const getComponentCommentSelect = () => {
-  return document.querySelector('.select-comment');
+  return document.querySelector('.select-comment'); // Mengambil elemen dengan class 'select-comment'
 }
 
-const createComponentComment = (parentComponent, type = 'all') => {
+// Fungsi untuk membuat dan menampilkan komentar berdasarkan jenis (all, shortest, longest, etc.)
+const createComponentComment = (parentComponent, type = 'all-comment') => {
+  // Mengosongkan isi komentar yang sudah ada sebelum menampilkan komentar baru
   getComponentCommentContainer().innerHTML = ``;
 
+  // Melakukan fetch untuk mengambil data komentar dari file 'dataComments.json'
   fetch('./dataComments.json')
     .then(response => {
       if (!response.ok) {
-        throw new Error('Network response was not ok');
+        throw new Error('Network response was not ok'); // Menangani error jika fetch gagal
       }
-      return response.json();
+      return response.json(); // Mengonversi respons menjadi format JSON
     })
     .then(dataComments => {
-      let commentsToDisplay = [];
+      let commentsToDisplay = []; // Menyimpan komentar yang akan ditampilkan
 
-      if (type === 'shortest') {
+      // Memeriksa jenis komentar yang dipilih oleh pengguna
+      if (type === 'shortest-comment') {
+        // Mencari komentar dengan panjang terpendek
         let minDataComment = dataComments[0];
-        let minLength = minDataComment.comment.commentBody.commentContent.length;
 
+        // Loop untuk mencari komentar dengan panjang terpendek
         for (let i = 1; i < dataComments.length; i++) {
-          const dataComment = dataComments[i];
-          const commentLength = dataComment.comment.commentBody.commentContent.length;
-          if (commentLength < minLength) {
-            minLength = commentLength;
-            minDataComment = dataComment;
+          if (dataComments[i].comment.commentBody.commentContent.length < minDataComment.comment.commentBody.commentContent.length) {
+            minDataComment = dataComments[i]; // Memperbarui komentar terpendek
           }
         }
 
-        commentsToDisplay = [minDataComment];
-      } else if (type === 'longest') {
+        commentsToDisplay = [minDataComment]; // Menampilkan komentar terpendek
+      } else if (type === 'longest-comment') {
+        // Mencari komentar dengan panjang terpanjang
         let maxDataComment = dataComments[0];
-        let maxLength = maxDataComment.comment.commentBody.commentContent.length;
 
+        // Loop untuk mencari komentar dengan panjang terpanjang
         for (let i = 1; i < dataComments.length; i++) {
-          const dataComment = dataComments[i];
-          const commentLength = dataComment.comment.commentBody.commentContent.length;
-          if (commentLength > maxLength) {
-            maxLength = commentLength;
-            maxDataComment = dataComment;
+          if (dataComments[i].comment.commentBody.commentContent.length > maxDataComment.comment.commentBody.commentContent.length) {
+            maxDataComment = dataComments[i]; // Memperbarui komentar terpanjang
           }
         }
 
-        commentsToDisplay = [maxDataComment];
+        commentsToDisplay = [maxDataComment]; // Menampilkan komentar terpanjang
+      } else if (type === 'fewest-likes') {
+        // Mencari komentar dengan jumlah like paling sedikit
+        let minDataLike = dataComments[0];
+
+        // Loop untuk mencari komentar dengan jumlah like paling sedikit
+        for (let i = 1; i < dataComments.length; i++) {
+          if (dataComments[i].comment.commentReact.like < minDataLike.comment.commentReact.like) {
+            minDataLike = dataComments[i]; // Memperbarui komentar dengan jumlah like paling sedikit
+          }
+        }
+
+        commentsToDisplay = [minDataLike]; // Menampilkan komentar dengan paling sedikit like
+      } else if (type === 'most-likes') {
+        // Mencari komentar dengan jumlah like paling banyak
+        let maxDataLike = dataComments[0];
+
+        // Loop untuk mencari komentar dengan jumlah like paling banyak
+        for (let i = 1; i < dataComments.length; i++) {
+          if (dataComments[i].comment.commentReact.like > maxDataLike.comment.commentReact.like) {
+            maxDataLike = dataComments[i]; // Memperbarui komentar dengan jumlah like paling banyak
+          }
+        }
+
+        commentsToDisplay = [maxDataLike]; // Menampilkan komentar dengan paling banyak like
       } else {
-        commentsToDisplay = dataComments;
+        commentsToDisplay = dataComments; // Menampilkan semua komentar jika tidak ada filter yang diterapkan
       }
 
+      // Menambahkan komentar ke dalam container
       commentsToDisplay.forEach(dataComment => {
-        const divElement = document.createElement('div');
+        const divElement = document.createElement('div'); // Membuat elemen div untuk setiap komentar
         divElement.innerHTML = `
         <div class=${Object.keys(dataComment)[0]}>
           <div class=${Object.keys(dataComment.comment)[0].replace(/([A-Z])/g, '-$1').toLowerCase()}>
@@ -87,27 +114,35 @@ const createComponentComment = (parentComponent, type = 'all') => {
           </div>
         </div>`;
 
+        // Menambahkan div yang telah dibuat ke dalam parentComponent
         parentComponent.appendChild(divElement);
       });
     })
     .catch(error => {
-      console.error('There was a problem with the fetch operation:', error);
+      console.error('There was a problem with the fetch operation:', error); // Menangani error jika terjadi masalah dengan fetch
     });
 }
 
+// Menambahkan event listener pada elemen select untuk mendeteksi perubahan pilihan dan memfilter komentar
 getComponentCommentSelect().addEventListener('change', () => {
-  const value = getComponentCommentSelect().value;
+  const value = getComponentCommentSelect().value; // Mendapatkan nilai dari elemen select
   if (value === 'all-comment') {
-    createComponentComment(getComponentCommentContainer(), 'all');
+    createComponentComment(getComponentCommentContainer(), value); // Menampilkan semua komentar
   } else if (value === 'shortest-comment') {
-    createComponentComment(getComponentCommentContainer(), 'shortest');
+    createComponentComment(getComponentCommentContainer(), value); // Menampilkan komentar terpendek
   } else if (value === 'longest-comment') {
-    createComponentComment(getComponentCommentContainer(), 'longest');
-  } else {
-    createComponentComment(getComponentCommentContainer(), 'all');
+    createComponentComment(getComponentCommentContainer(), value); // Menampilkan komentar terpanjang
+  } else if (value === 'fewest-likes') {
+    createComponentComment(getComponentCommentContainer(), value); // Menampilkan komentar dengan like paling sedikit
+  } else if (value === 'most-likes') {
+    createComponentComment(getComponentCommentContainer(), value); // Menampilkan komentar dengan like paling banyak
+  }
+  else {
+    createComponentComment(getComponentCommentContainer(), 'all-comment'); // Default: Menampilkan semua komentar
   }
 });
 
+// Menambahkan event listener yang akan dipanggil ketika halaman selesai dimuat
 window.addEventListener('load', () => {
-  createComponentComment(getComponentCommentContainer(), 'all');
+  createComponentComment(getComponentCommentContainer(), 'all-comment'); // Menampilkan semua komentar saat halaman pertama kali dimuat
 });
