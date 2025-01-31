@@ -33,7 +33,7 @@ header>h1 {
     margin-bottom: 2rem;
 }
 
-header>nav {
+nav {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -42,7 +42,7 @@ header>nav {
     text-align: center;
 }
 
-header>nav>section {
+nav>section {
     display: flex;
     column-gap: 2rem;
 }
@@ -482,8 +482,11 @@ header>nav>section {
 }
 
 footer {
-    background-color: white;
     margin-inline: auto;
     padding: 2rem;
     text-align: center;
+}
+
+footer>section {
+    padding-top: 2rem;
 }
