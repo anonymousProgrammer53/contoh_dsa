@@ -1,0 +1,112 @@
+{
+    "post1": {
+        "avatar": "",
+        "title": "7 Alat untuk Pengembangan Web yang Lebih Cepat",
+        "url": "#",
+        "reading_time": "30 detik yang lalu",
+        "image_preview": "",
+        "reactions": {
+            "likes": 15,
+            "comments": 5
+        }
+    },
+    "post2": {
+        "avatar": "",
+        "title": "Panduan Dasar Membuat Website dengan HTML & CSS",
+        "url": "#",
+        "reading_time": "2 menit yang lalu",
+        "image_preview": "",
+        "reactions": {
+            "likes": 20,
+            "comments": 8
+        }
+    },
+    "post3": {
+        "avatar": "",
+        "title": "Mengenal Framework JavaScript: React vs Vue vs Angular",
+        "url": "#",
+        "reading_time": "5 menit yang lalu",
+        "image_preview": "",
+        "reactions": {
+            "likes": 12,
+            "comments": 3
+        }
+    },
+    "post4": {
+        "avatar": "",
+        "title": "Tips Optimasi Performa Website untuk Kecepatan Maksimal",
+        "url": "#",
+        "reading_time": "15 menit yang lalu",
+        "image_preview": "",
+        "reactions": {
+            "likes": 18,
+            "comments": 6
+        }
+    },
+    "post5": {
+        "avatar": "",
+        "title": "Belajar API: Pengertian, Jenis, dan Cara Menggunakannya",
+        "url": "#",
+        "reading_time": "1 jam yang lalu",
+        "image_preview": "",
+        "reactions": {
+            "likes": 25,
+            "comments": 10
+        }
+    },
+    "post6": {
+        "avatar": "",
+        "title": "Cara Membuat Aplikasi Web Responsif dengan CSS Grid",
+        "url": "#",
+        "reading_time": "2 jam yang lalu",
+        "image_preview": "",
+        "reactions": {
+            "likes": 14,
+            "comments": 7
+        }
+    },
+    "post7": {
+        "avatar": "",
+        "title": "Memahami Konsep Single Page Application (SPA)",
+        "url": "#",
+        "reading_time": "3 jam yang lalu",
+        "image_preview": "",
+        "reactions": {
+            "likes": 22,
+            "comments": 5
+        }
+    },
+    "post8": {
+        "avatar": "",
+        "title": "Keamanan Website: Cara Melindungi Data Pengguna",
+        "url": "#",
+        "reading_time": "1 hari yang lalu",
+        "image_preview": "",
+        "reactions": {
+            "likes": 30,
+            "comments": 12
+        }
+    },
+    "post9": {
+        "avatar": "",
+        "title": "Mengenal Progressive Web Apps (PWA) dan Manfaatnya",
+        "url": "#",
+        "reading_time": "2 hari yang lalu",
+        "image_preview": "",
+        "reactions": {
+            "likes": 19,
+            "comments": 6
+        }
+    },
+    "post10": {
+        "avatar": "",
+        "title": "Panduan Lengkap Menggunakan Tailwind CSS untuk Pemula",
+        "url": "#",
+        "reading_time": "3 hari yang lalu",
+        "image_preview": "",
+        "reactions": {
+            "likes": 27,
+            "comments": 9
+        }
+    }
+}
