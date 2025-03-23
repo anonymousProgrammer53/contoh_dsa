@@ -4,141 +4,237 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contoh DSA</title>
+    <title>DSA Example</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
     <style>
-        /* Card untuk setiap postingan */
-        .post-card {
-            width: 100%;
-            background-color: rgb(24, 27, 32);
-            border: none;
-            border-radius: 20px;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            padding: 15px;
-            padding-bottom: 5px;
+        .poppins-thin {
+            font-family: "Poppins", sans-serif;
+            font-weight: 100;
+            font-style: normal;
         }
 
-        /* Avatar */
-        .avatar {
-            height: 35px;
-            width: 35px;
-            border-radius: 50%;
-            background-image: linear-gradient(to top left, blueviolet, rgb(73, 31, 112));
+        .poppins-extralight {
+            font-family: "Poppins", sans-serif;
+            font-weight: 200;
+            font-style: normal;
         }
 
-        /* Judul Post */
-        .title {
-            font-size: 24px;
-            line-height: 28px;
+        .poppins-light {
+            font-family: "Poppins", sans-serif;
+            font-weight: 300;
+            font-style: normal;
+        }
+
+        .poppins-regular {
+            font-family: "Poppins", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .poppins-medium {
+            font-family: "Poppins", sans-serif;
+            font-weight: 500;
+            font-style: normal;
+        }
+
+        .poppins-semibold {
+            font-family: "Poppins", sans-serif;
             font-weight: 600;
-            margin-top: 10px;
-            color: #fff;
-            text-decoration: none;
-            transition: all 0.3s ease-in;
+            font-style: normal;
         }
 
-        .title:hover {
-            text-decoration: underline blueviolet;
+        .poppins-bold {
+            font-family: "Poppins", sans-serif;
+            font-weight: 700;
+            font-style: normal;
         }
 
-        /* Waktu postingan */
-        .datetime {
-            font-size: 12px;
-            color: rgb(168, 179, 207);
-            margin: 10px 0;
+        .poppins-extrabold {
+            font-family: "Poppins", sans-serif;
+            font-weight: 800;
+            font-style: normal;
         }
 
-        /* Gambar preview */
-        .image-preview {
-            flex: 1;
-            min-height: 150px;
-            width: 100%;
-            border-radius: 20px;
-            background-image: linear-gradient(to top left, blueviolet, rgb(73, 31, 112));
+        .poppins-black {
+            font-family: "Poppins", sans-serif;
+            font-weight: 900;
+            font-style: normal;
+        }
+
+        .poppins-thin-italic {
+            font-family: "Poppins", sans-serif;
+            font-weight: 100;
+            font-style: italic;
+        }
+
+        .poppins-extralight-italic {
+            font-family: "Poppins", sans-serif;
+            font-weight: 200;
+            font-style: italic;
+        }
+
+        .poppins-light-italic {
+            font-family: "Poppins", sans-serif;
+            font-weight: 300;
+            font-style: italic;
+        }
+
+        .poppins-regular-italic {
+            font-family: "Poppins", sans-serif;
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        .poppins-medium-italic {
+            font-family: "Poppins", sans-serif;
+            font-weight: 500;
+            font-style: italic;
+        }
+
+        .poppins-semibold-italic {
+            font-family: "Poppins", sans-serif;
+            font-weight: 600;
+            font-style: italic;
+        }
+
+        .poppins-bold-italic {
+            font-family: "Poppins", sans-serif;
+            font-weight: 700;
+            font-style: italic;
+        }
+
+        .poppins-extrabold-italic {
+            font-family: "Poppins", sans-serif;
+            font-weight: 800;
+            font-style: italic;
+        }
+
+        .poppins-black-italic {
+            font-family: "Poppins", sans-serif;
+            font-weight: 900;
+            font-style: italic;
+        }
+
+        .post-card {
+            position: relative;
+            background: linear-gradient(135deg, #1e1f2f, #3b2f4a);
+            padding: 1em;
+            padding-top: 0;
+            padding-bottom: 0;
+            z-index: 5;
+            border-radius: 10px;
+            max-width: 100%;
+            transition: 200ms ease-in-out;
+        }
+
+        .post-card__post {
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+
+        .post-card__header {
+            display: flex;
+            align-items: center;
             margin-bottom: 10px;
         }
 
-        /* Komentar dan Like */
-        .comment-like {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            padding: 5px 0;
-            column-gap: 10px;
-        }
-
-        .comment-like span {
-            cursor: pointer;
+        .post-card__profile-pic {
+            width: 40px;
             height: 40px;
-            width: 50px;
-            padding: 0px 4px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 10px;
+            border: 2px solid #C6E1ED;
+            background: linear-gradient(135deg, #1e1f2f, #3b2f4a);
+        }
+
+        .post-card__username {
+            color: #C6E1ED;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+
+        .post-card__body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .post-card__text {
+            margin: 0 10px 0 0;
+            white-space: pre-line;
+            color: #c0c3d7;
+            font-weight: 400;
+            line-height: 1.5;
+            margin-bottom: 4px;
+        }
+
+        .post-card__footer {
+            position: relative;
+            width: 100%;
+            color: #9fa4aa;
+            font-size: 12px;
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-weight: 900;
-            border-radius: 10px;
-            background-color: transparent;
-            transition: all 0.15s ease;
-            width: auto;
+            justify-content: space-between;
+            border: none;
+            margin-top: 10px;
         }
 
-        .comment-like span:hover {
-            background-color: rgba(137, 43, 226, 0.096);
+        .post-card__footer div {
+            margin-right: 1rem;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
         }
 
-        .comment-like span svg {
-            fill: rgb(255, 255, 255);
-            margin-right: 4px;
-            width: 32px
+        .post-card__footer svg {
+            margin-right: 5px;
+            height: 100%;
+            stroke: #9fa4aa;
         }
 
-        .bg-img-linear-gradient-top-left-blueViolet {
-            background-image: linear-gradient(to top left, blueviolet, rgb(73, 31, 112));
-        }
-
-        .box-shadow-4px-4px-10px-rgba-0-0-0-0-5 {
-            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+        .bg-linear-grd-135deg-1e1f2f-3b2f4a {
+            background: linear-gradient(135deg, #1e1f2f, #3b2f4a);
         }
     </style>
 </head>
 
-<body data-bs-theme="dark">
+<body data-bs-theme="light" class="poppins-medium">
     <header>
         <div class="container mt-4 mb-4">
             <div class="row">
-                <div class="col-xl-6 col-lg-8 col-md-10 col-sm-12 m-auto text-center">
-                    <h1>Contoh DSA (Data Structures and Algorithms)</h1>
+                <div class="col-xl-8 col-lg-8 col-md-10 col-sm-12 m-auto text-center">
+                    <h1 class="poppins-bold">DSA Example <br>(Data Structures and Algorithms)</h1>
                     <nav class="navbar">
-                        <div class="dropdown w-100 mb-2">
-                            <button class="btn bg-body-tertiary dropdown-toggle w-100 rounded-pill border-0"
-                                type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Penjelasan DSA
-                            </button>
-                            <ul class="dropdown-menu w-100 bg-body-tertiary border-0 mt-2">
-                                <li>
-                                    <a class="dropdown-item" href="https://www.w3schools.com/dsa/index.php"
-                                        target="_blank">Penjelasan DSA</a>
+                        <div class="container-fluid">
+                            <ul class="nav nav-underline justify-content-center m-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">DSA Home</a>
                                 </li>
-                                <li>
-                                    <a class="dropdown-item" href="https://www.w3schools.com/dsa/dsa_intro.php"
-                                        target="_blank">Pengantar DSA</a>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">DSA Intro</a>
                                 </li>
-                                <li><a class="dropdown-item" href="https://www.w3schools.com/dsa/dsa_algo_simple.php"
-                                        target="_blank">Algoritma DSA Sederhana</a></li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">DSA Simple Algorithm</a>
+                                </li>
                             </ul>
-                        </div>
-                        <div class="dropdown w-100">
-                            <button class="btn bg-body-tertiary dropdown-toggle w-100 rounded-pill border-0"
-                                type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Contoh DSA
-                            </button>
-                            <ul class="dropdown-menu w-100 bg-body-tertiary border-0 mt-2">
-                                <li><a class="dropdown-item" href="#">Contoh DSA</a></li>
-                                <li><a class="dropdown-item" href="#">Contoh DSA Bagian ke 2</a></li>
-                                <li><a class="dropdown-item" href="#">Contoh Algoritma DSA Sederhana</a></li>
+                            <ul class="nav nav-underline justify-content-center m-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">DSA Example</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Example of DSA Part 2</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Simple DSA Algorithm Example</a>
+                                </li>
                             </ul>
                         </div>
                     </nav>
@@ -150,25 +246,45 @@
         <section>
             <div class="container mt-4 mb-4">
                 <div class="row">
-                    <div class="col-xl-6 col-lg-8 col-md-10 col-sm-12 m-auto">
-                        <h3 class="mb-3">Contoh DSA Mencari dan Menampilkan Data Postingan Terkecil dan Terbesar</h3>
-                        <div class="dropdown w-100 mb-3">
-                            <button
-                                class="btn bg-img-linear-gradient-top-left-blueViolet dropdown-toggle w-100 rounded-pill border-0"
-                                type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Mencari dan Menampilkan Data Postingan
-                            </button>
-                            <ul
-                                class="dropdown-menu w-100 bg-img-linear-gradient-top-left-blueViolet border-0 mt-2 box-shadow-4px-4px-10px-rgba-0-0-0-0-5">
-                                <li><a class="dropdown-item" href="#">Postingan Terbaru</a></li>
-                                <li><a class="dropdown-item" href="#">Postingan Terlama</a></li>
-                                <li><a class="dropdown-item" href="#">Postingan dengan Like Paling Sedikit</a></li>
-                                <li><a class="dropdown-item" href="#">Postingan dengan Like Terbanyak</a></li>
-                                <li><a class="dropdown-item" href="#">Postingan dengan Komentar Paling Sedikit</a></li>
-                                <li><a class="dropdown-item" href="#">Postingan dengan Komantar Terbanyak</a></li>
-                            </ul>
-                        </div>
-                        <div id="post-container" class="d-flex flex-column row-gap-3"></div>
+                    <div class="col-xl-8 col-lg-8 col-md-10 col-sm-12 m-auto">
+                        <h2 class="poppins-semibold text-center">Contoh DSA Mencari dan Menampilkan Data Postingan
+                            Terkecil dan
+                            Terbesar</h2>
+                        <ul class="nav nav-underline justify-content-center">
+                            <div class="d-flex overflow-x-scroll mb-2 text-center ps-2 pe-2">
+                                <li class="nav-item ps-2 pe-2">
+                                    <a class="nav-link" href="#">Postingan Terpendek</a>
+                                </li>
+                                <li class="nav-item ps-2 pe-2">
+                                    <a class="nav-link" href="#">Postingan Terpanjang</a>
+                                </li>
+                                <li class="nav-item ps-2 pe-2">
+                                    <a class="nav-link" href="#">Postingan Pertama</a>
+                                </li>
+                                <li class="nav-item ps-2 pe-2">
+                                    <a class="nav-link" href="#">Postingan Terbaru</a>
+                                </li>
+                                <li class="nav-item ps-2 pe-2">
+                                    <a class="nav-link" href="#">Komentar Tersedikit</a>
+                                </li>
+                                <li class="nav-item ps-2 pe-2">
+                                    <a class="nav-link" href="#">Komentar Terbanyak</a>
+                                </li>
+                                <li class="nav-item ps-2 pe-2">
+                                    <a class="nav-link" href="#">Pin Tersedikit</a>
+                                </li>
+                                <li class="nav-item ps-2 pe-2">
+                                    <a class="nav-link" href="#">Pin Terbanyak</a>
+                                </li>
+                                <li class="nav-item ps-2 pe-2">
+                                    <a class="nav-link" href="#">Share Tersedikit</a>
+                                </li>
+                                <li class="nav-item ps-2 pe-2">
+                                    <a class="nav-link" href="#">Share Terbanyak</a>
+                                </li>
+                            </div>
+                        </ul>
+                        <div id="post-card" class="post-card"></div>
                     </div>
                 </div>
             </div>
@@ -177,24 +293,8 @@
     <footer>
         <div class="container mt-4 mb-4">
             <div class="row">
-                <div class="col-xl-6 col-lg-8 col-md-10 col-sm-12 m-auto text-center">
+                <div class="col-xl-8 col-lg-8 col-md-10 col-sm-12 m-auto text-center">
                     <nav class="navbar">
-                        <div class="dropdown w-100">
-                            <button class="btn bg-body-tertiary dropdown-toggle w-100 rounded-pill border-0"
-                                type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                DSA Arrays
-                            </button>
-                            <ul class="dropdown-menu w-100 bg-body-tertiary border-0 mt-2">
-                                <li>
-                                    <a class="dropdown-item" href="https://www.w3schools.com/dsa/index.php"
-                                        target="_blank">Penjelasan DSA Arrays</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="https://www.w3schools.com/dsa/index.php"
-                                        target="_blank">Contoh DSA Arrays</a>
-                                </li>
-                            </ul>
-                        </div>
                         <div class="container-fluid">
                             <span class="navbar-text d-block w-100 text-center">
                                 di bikin dengan penuh cinta dan kasih sayang, by AA
@@ -210,76 +310,94 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     <script>
-        // Ambil elemen utama untuk menampung post
-        const getPostContainer = () => document.getElementById('post-container');
+        const componentPostCardPost = (parentComponent, { username, profile_picture, text, comment, pin, share }) => {
+            let div = document.createElement('div');
+            div.classList.add('post-card__post');
+            div.innerHTML = `
+            <div class="post-card__header">
+                                    <div alt="Profile" class="post-card__profile-pic"></div>
+                                    <span class="post-card__username">${username}</span>
+                                </div>
+                                <div class="post-card__body">
+                                    <p class="post-card__text">${text}</p>
+                                    <div class="post-card__footer">
+                                        <div>
+                                            <div><svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                    viewBox="0 0 24 24">
+                                                    <g stroke-width="0" id="SVGRepo_bgCarrier"></g>
+                                                    <g stroke-linejoin="round" stroke-linecap="round"
+                                                        id="SVGRepo_tracerCarrier"></g>
+                                                    <g id="SVGRepo_iconCarrier">
+                                                        <path stroke-linejoin="round" stroke-linecap="round"
+                                                            stroke-width="1.5"
+                                                            d="M16 10H16.01M12 10H12.01M8 10H8.01M3 10C3 4.64706 5.11765 3 12 3C18.8824 3 21 4.64706 21 10C21 15.3529 18.8824 17 12 17C11.6592 17 11.3301 16.996 11.0124 16.9876L7 21V16.4939C4.0328 15.6692 3 13.7383 3 10Z">
+                                                        </path>
+                                                    </g>
+                                                </svg>${comment}</div>
+                                            <div><svg fill="#000000" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                    xmlns="http://www.w3.org/2000/svg" version="1.1"
+                                                    viewBox="-2.5 0 32 32">
+                                                    <g stroke-width="0" id="SVGRepo_bgCarrier"></g>
+                                                    <g stroke-linejoin="round" stroke-linecap="round"
+                                                        id="SVGRepo_tracerCarrier"></g>
+                                                    <g id="SVGRepo_iconCarrier">
+                                                        <g id="icomoon-ignore"> </g>
+                                                        <path fill="#000000"
+                                                            d="M0 10.284l0.505 0.36c0.089 0.064 0.92 0.621 2.604 0.621 0.27 0 0.55-0.015 0.836-0.044 3.752 4.346 6.411 7.472 7.060 8.299-1.227 2.735-1.42 5.808-0.537 8.686l0.256 0.834 7.63-7.631 8.309 8.309 0.742-0.742-8.309-8.309 7.631-7.631-0.834-0.255c-2.829-0.868-5.986-0.672-8.686 0.537-0.825-0.648-3.942-3.3-8.28-7.044 0.11-0.669 0.23-2.183-0.575-3.441l-0.352-0.549-8.001 8.001zM1.729 10.039l6.032-6.033c0.385 1.122 0.090 2.319 0.086 2.334l-0.080 0.314 0.245 0.214c7.409 6.398 8.631 7.39 8.992 7.546l-0.002 0.006 0.195 0.058 0.185-0.087c2.257-1.079 4.903-1.378 7.343-0.836l-13.482 13.481c-0.55-2.47-0.262-5.045 0.837-7.342l0.104-0.218-0.098-0.221-0.031 0.013c-0.322-0.632-1.831-2.38-7.498-8.944l-0.185-0.215-0.282 0.038c-0.338 0.045-0.668 0.069-0.981 0.069-0.595 0-1.053-0.083-1.38-0.176z">
+                                                        </path>
+                                                    </g>
+                                                </svg>${pin}</div>
+                                            <div><svg viewBox="0 0 24 24" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                                        stroke-linejoin="round"></g>
+                                                    <g id="SVGRepo_iconCarrier">
+                                                        <path opacity="0.1"
+                                                            d="M21 6C21 7.65685 19.6569 9 18 9C16.3431 9 15 7.65685 15 6C15 4.34315 16.3431 3 18 3C19.6569 3 21 4.34315 21 6Z"
+                                                            fill="#323232"></path>
+                                                        <path opacity="0.1"
+                                                            d="M21 18C21 19.6569 19.6569 21 18 21C16.3431 21 15 19.6569 15 18C15 16.3431 16.3431 15 18 15C19.6569 15 21 16.3431 21 18Z"
+                                                            fill="#323232"></path>
+                                                        <path opacity="0.1"
+                                                            d="M9 12C9 13.6569 7.65685 15 6 15C4.34315 15 3 13.6569 3 12C3 10.3431 4.34315 9 6 9C7.65685 9 9 10.3431 9 12Z"
+                                                            fill="#323232"></path>
+                                                        <path
+                                                            d="M21 6C21 7.65685 19.6569 9 18 9C16.3431 9 15 7.65685 15 6C15 4.34315 16.3431 3 18 3C19.6569 3 21 4.34315 21 6Z"
+                                                            stroke-width="2"></path>
+                                                        <path
+                                                            d="M21 18C21 19.6569 19.6569 21 18 21C16.3431 21 15 19.6569 15 18C15 16.3431 16.3431 15 18 15C19.6569 15 21 16.3431 21 18Z"
+                                                            stroke-width="2"></path>
+                                                        <path
+                                                            d="M9 12C9 13.6569 7.65685 15 6 15C4.34315 15 3 13.6569 3 12C3 10.3431 4.34315 9 6 9C7.65685 9 9 10.3431 9 12Z"
+                                                            stroke-width="2"></path>
+                                                        <path d="M8.7207 10.6397L15.0001 7.5" stroke-width="2"
+                                                            stroke-linecap="round" stroke-linejoin="round"></path>
+                                                        <path d="M8.70605 13.353L15 16.5" stroke-width="2"
+                                                            stroke-linecap="round" stroke-linejoin="round"></path>
+                                                    </g>
+                                                </svg>${share}</div>
+                                        </div>
+                                    </div>
+                                </div>
+            `;
+            parentComponent.appendChild(div);
+            return div;
+        }
 
-        // Fungsi untuk membuat komponen postingan
-        const createPostComponent = (parentComponent, titleTextContent, dateTimeTextContent, numberOfLikes, numberOfComments) => {
-            // Pastikan parent ada
-            if (!parentComponent) {
-                console.error("Elemen parent tidak ditemukan!");
-                return;
-            }
-
-            // Buat elemen post-card
-            let postCard = document.createElement('div');
-            postCard.classList.add('post-card');
-
-            let avatar = document.createElement('div');
-            avatar.classList.add('avatar');
-
-            let title = document.createElement('a');
-            title.classList.add('title');
-            title.href = '#';
-            title.textContent = titleTextContent;
-
-            let dateTime = document.createElement('span');
-            dateTime.classList.add('datetime');
-            dateTime.textContent = dateTimeTextContent;
-
-            let imgPreview = document.createElement('div');
-            imgPreview.classList.add('image-preview');
-
-            let commentLike = document.createElement('div');
-            commentLike.classList.add('comment-like');
-            commentLike.innerHTML = `
-                <span><svg fill="" xml:space="preserve" viewBox="0 0 32 32" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" id="Uploaded to svgrepo.com" version="1.1"><g stroke-width="0" id="SVGRepo_bgCarrier"></g><g stroke-linejoin="round" stroke-linecap="round" id="SVGRepo_tracerCarrier"></g><g id="SVGRepo_iconCarrier"> <path d="M21.081,6C23.752,6.031,26,8.766,26,12c0,5.106-6.47,10.969-10.001,13.593 C12.466,22.974,6,17.12,6,12c0-3.234,2.248-5.969,4.918-6C13.586,6.175,13.926,6.801,16,8.879C18.069,6.806,18.418,6.173,21.081,6 M20.911,4.006L20.912,4C18.993,4,17.259,4.785,16,6.048C14.741,4.785,13.007,4,11.088,4l0.001,0.006C7.044,3.936,4,7.719,4,12 c0,8,11.938,16,11.938,16h0.124C16.062,28,28,20,28,12C28,7.713,24.951,3.936,20.911,4.006z" class="bentblocks_een"></path> </g></svg>${numberOfLikes}</span>
-                <span><svg fill="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g stroke-width="0" id="SVGRepo_bgCarrier"></g><g stroke-linejoin="round" stroke-linecap="round" id="SVGRepo_tracerCarrier"></g><g id="SVGRepo_iconCarrier"> <path fill="" d="M4.49999 20.25C4.37892 20.2521 4.25915 20.2248 4.1509 20.1705C4.04266 20.1163 3.94916 20.0366 3.87841 19.9383C3.80766 19.8401 3.76175 19.7261 3.74461 19.6063C3.72747 19.4864 3.73961 19.3641 3.77999 19.25L5.37999 14C5.03175 13.0973 4.85539 12.1375 4.85999 11.17C4.8584 10.1057 5.06918 9.0518 5.47999 8.06999C5.88297 7.13047 6.45975 6.27549 7.17999 5.54999C7.90382 4.82306 8.76344 4.24545 9.70999 3.84999C10.6889 3.4344 11.7415 3.22021 12.805 3.22021C13.8685 3.22021 14.9211 3.4344 15.9 3.84999C17.3341 4.46429 18.5573 5.48452 19.4191 6.7851C20.2808 8.08568 20.7434 9.60985 20.75 11.17C20.7437 13.2771 19.9065 15.2966 18.42 16.79C17.6945 17.5102 16.8395 18.087 15.9 18.49C14.0091 19.2819 11.8865 19.3177 9.96999 18.59L4.71999 20.19C4.64977 20.22 4.57574 20.2402 4.49999 20.25ZM12.8 4.74999C11.5334 4.75547 10.2962 5.13143 9.24068 5.83153C8.18519 6.53164 7.35763 7.52528 6.85999 8.68999C6.19883 10.2911 6.19883 12.0889 6.85999 13.69C6.91957 13.8548 6.91957 14.0352 6.85999 14.2L5.62999 18.37L9.77999 17.11C9.94477 17.0504 10.1252 17.0504 10.29 17.11C11.0824 17.439 11.932 17.6083 12.79 17.6083C13.648 17.6083 14.4976 17.439 15.29 17.11C16.0708 16.7813 16.779 16.3018 17.3742 15.6989C17.9693 15.096 18.4397 14.3816 18.7583 13.5967C19.077 12.8118 19.2376 11.9717 19.231 11.1245C19.2244 10.2774 19.0508 9.4399 18.72 8.65999C18.2234 7.50094 17.398 6.51285 16.3459 5.81792C15.2937 5.123 14.0609 4.75171 12.8 4.74999Z"></path> </g></svg>${numberOfComments}</span>`;
-
-            // Tambahkan elemen ke dalam post-card
-            postCard.appendChild(avatar);
-            postCard.appendChild(title);
-            postCard.appendChild(dateTime);
-            postCard.appendChild(imgPreview);
-            postCard.appendChild(commentLike);
-
-            // Masukkan post ke dalam parentComponent
-            parentComponent.appendChild(postCard);
-        };
-
-        // Ambil data dari JSON lalu buat post berdasarkan data tersebut
         fetch('./dataPost.json')
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-
-                // Pastikan ada data
-                if (!data || Object.keys(data).length === 0) {
-                    console.warn("Data kosong atau tidak valid");
-                    return;
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Gagal mengambil data');
                 }
-
-                // Ambil container
-                const postContainer = getPostContainer();
-
-                // Iterasi data jika berbentuk object
-                Object.values(data).forEach(post => {
-                    createPostComponent(postContainer, post.title, post.reading_time, post.reactions.likes, post.reactions.comments);
+                return response.json();
+            })
+            .then(data => {
+                Object.values(data).forEach((post) => {
+                    componentPostCardPost(document.getElementById('post-card'), { username: post.username, profile_picture: post.profile_picture, text: post.text, comment: post.comment, pin: post.pin, share: post.share });
                 });
             })
-            .catch(error => {
-                console.error('Terjadi kesalahan:', error);
-            });
+            .catch(error => console.error('Error:', error));
     </script>
 </body>
 
