@@ -1,112 +1,82 @@
 {
     "post1": {
-        "avatar": "",
-        "title": "7 Alat untuk Pengembangan Web yang Lebih Cepat",
-        "url": "#",
-        "reading_time": "30 detik yang lalu",
-        "image_preview": "",
-        "reactions": {
-            "likes": 15,
-            "comments": 5
-        }
+        "username": "Monkey D. Luffy",
+        "profile_picture": "https://example.com/luffy.jpg",
+        "text": "Aku akan menjadi Raja Bajak Laut!",
+        "comment": 18,
+        "pin": 7,
+        "share": 2
     },
     "post2": {
-        "avatar": "",
-        "title": "Panduan Dasar Membuat Website dengan HTML & CSS",
-        "url": "#",
-        "reading_time": "2 menit yang lalu",
-        "image_preview": "",
-        "reactions": {
-            "likes": 20,
-            "comments": 8
-        }
+        "username": "Shanks",
+        "profile_picture": "https://example.com/shanks.jpg",
+        "text": "Luka di punggung adalah aib bagi seorang pendekar pedang.",
+        "comment": 22,
+        "pin": 9,
+        "share": 4
     },
     "post3": {
-        "avatar": "",
-        "title": "Mengenal Framework JavaScript: React vs Vue vs Angular",
-        "url": "#",
-        "reading_time": "5 menit yang lalu",
-        "image_preview": "",
-        "reactions": {
-            "likes": 12,
-            "comments": 3
-        }
+        "username": "Sakazuki (Akainu)",
+        "profile_picture": "https://example.com/akainu.jpg",
+        "text": "Keadilan akan menang, katamu? Tentu saja!",
+        "comment": 15,
+        "pin": 6,
+        "share": 3
     },
     "post4": {
-        "avatar": "",
-        "title": "Tips Optimasi Performa Website untuk Kecepatan Maksimal",
-        "url": "#",
-        "reading_time": "15 menit yang lalu",
-        "image_preview": "",
-        "reactions": {
-            "likes": 18,
-            "comments": 6
-        }
+        "username": "Roronoa Zoro",
+        "profile_picture": "https://example.com/zoro.jpg",
+        "text": "Aku tidak peduli apa kata dunia. Aku akan menjadi pendekar pedang terhebat!",
+        "comment": 24,
+        "pin": 10,
+        "share": 5
     },
     "post5": {
-        "avatar": "",
-        "title": "Belajar API: Pengertian, Jenis, dan Cara Menggunakannya",
-        "url": "#",
-        "reading_time": "1 jam yang lalu",
-        "image_preview": "",
-        "reactions": {
-            "likes": 25,
-            "comments": 10
-        }
+        "username": "Vinsmoke Sanji",
+        "profile_picture": "https://example.com/sanji.jpg",
+        "text": "Seorang pria memaafkan kebohongan seorang wanita.",
+        "comment": 19,
+        "pin": 8,
+        "share": 2
     },
     "post6": {
-        "avatar": "",
-        "title": "Cara Membuat Aplikasi Web Responsif dengan CSS Grid",
-        "url": "#",
-        "reading_time": "2 jam yang lalu",
-        "image_preview": "",
-        "reactions": {
-            "likes": 14,
-            "comments": 7
-        }
+        "username": "Nico Robin",
+        "profile_picture": "https://example.com/robin.jpg",
+        "text": "Orang bodoh yang tidak menghormati sejarah akan mengulanginya.",
+        "comment": 21,
+        "pin": 7,
+        "share": 3
     },
     "post7": {
-        "avatar": "",
-        "title": "Memahami Konsep Single Page Application (SPA)",
-        "url": "#",
-        "reading_time": "3 jam yang lalu",
-        "image_preview": "",
-        "reactions": {
-            "likes": 22,
-            "comments": 5
-        }
+        "username": "Usopp",
+        "profile_picture": "https://example.com/usopp.jpg",
+        "text": "Keberanian bukan berarti tidak takut, tetapi menghadapi ketakutan itu.",
+        "comment": 16,
+        "pin": 5,
+        "share": 1
     },
     "post8": {
-        "avatar": "",
-        "title": "Keamanan Website: Cara Melindungi Data Pengguna",
-        "url": "#",
-        "reading_time": "1 hari yang lalu",
-        "image_preview": "",
-        "reactions": {
-            "likes": 30,
-            "comments": 12
-        }
+        "username": "Franky",
+        "profile_picture": "https://example.com/franky.jpg",
+        "text": "Super!! Seorang pria adalah seseorang yang berdiri dengan kuat!",
+        "comment": 14,
+        "pin": 4,
+        "share": 1
     },
     "post9": {
-        "avatar": "",
-        "title": "Mengenal Progressive Web Apps (PWA) dan Manfaatnya",
-        "url": "#",
-        "reading_time": "2 hari yang lalu",
-        "image_preview": "",
-        "reactions": {
-            "likes": 19,
-            "comments": 6
-        }
+        "username": "Brook",
+        "profile_picture": "https://example.com/brook.jpg",
+        "text": "Yohoho! Bahkan dalam kematian, jiwa seorang musisi tetap bermain.",
+        "comment": 20,
+        "pin": 9,
+        "share": 4
     },
     "post10": {
-        "avatar": "",
-        "title": "Panduan Lengkap Menggunakan Tailwind CSS untuk Pemula",
-        "url": "#",
-        "reading_time": "3 hari yang lalu",
-        "image_preview": "",
-        "reactions": {
-            "likes": 27,
-            "comments": 9
-        }
+        "username": "Trafalgar Law",
+        "profile_picture": "https://example.com/law.jpg",
+        "text": "Yang lemah tidak bisa memilih bagaimana mereka mati.",
+        "comment": 23,
+        "pin": 11,
+        "share": 5
     }
 }
