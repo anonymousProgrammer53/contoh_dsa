@@ -1,0 +1,72 @@
+{
+    "comment1": {
+        "username": "Monkey D. Luffy",
+        "profile_picture": "https://example.com/luffy.jpg",
+        "date": "15 menit yang lalu",
+        "text": "Aplikasi ini sangat menyenangkan! Antarmukanya sederhana dan mudah digunakan.",
+        "like": 120
+    },
+    "comment2": {
+        "username": "Shanks",
+        "profile_picture": "https://example.com/shanks.jpg",
+        "date": "1 hari yang lalu",
+        "text": "Keamanan aplikasi ini cukup baik, tetapi masih ada beberapa bug yang perlu diperbaiki.",
+        "like": 95
+    },
+    "comment3": {
+        "username": "Sakazuki (Akainu)",
+        "profile_picture": "https://example.com/akainu.jpg",
+        "date": "1 hari yang lalu",
+        "text": "Performa aplikasi ini stabil, tapi sayangnya sering mengalami lag saat digunakan dalam waktu lama.",
+        "like": 75
+    },
+    "comment4": {
+        "username": "Roronoa Zoro",
+        "profile_picture": "https://example.com/zoro.jpg",
+        "date": "2 hari yang lalu",
+        "text": "Saya suka fitur-fiturnya, tetapi navigasinya bisa lebih intuitif.",
+        "like": 110
+    },
+    "comment5": {
+        "username": "Vinsmoke Sanji",
+        "profile_picture": "https://example.com/sanji.jpg",
+        "date": "2 hari yang lalu",
+        "text": "Desain aplikasinya menarik, tetapi warna-warnanya terlalu mencolok bagi mata.",
+        "like": 88
+    },
+    "comment6": {
+        "username": "Nico Robin",
+        "profile_picture": "https://example.com/robin.jpg",
+        "date": "3 hari yang lalu",
+        "text": "Fitur pencarian dalam aplikasi ini sangat membantu, tetapi hasilnya masih kurang akurat.",
+        "like": 102
+    },
+    "comment7": {
+        "username": "Usopp",
+        "profile_picture": "https://example.com/usopp.jpg",
+        "date": "3 hari yang lalu",
+        "text": "Aplikasi ini memiliki banyak potensi! Saya harap pengembang terus melakukan update.",
+        "like": 90
+    },
+    "comment8": {
+        "username": "Franky",
+        "profile_picture": "https://example.com/franky.jpg",
+        "date": "4 hari yang lalu",
+        "text": "Sistem notifikasinya masih kurang responsif, sering kali terlambat muncul.",
+        "like": 65
+    },
+    "comment9": {
+        "username": "Brook",
+        "profile_picture": "https://example.com/brook.jpg",
+        "date": "5 hari yang lalu",
+        "text": "Yohoho! Aplikasinya cukup menghibur, saya suka menggunakannya di waktu luang.",
+        "like": 80
+    },
+    "comment10": {
+        "username": "Trafalgar Law",
+        "profile_picture": "https://example.com/law.jpg",
+        "date": "6 hari yang lalu",
+        "text": "Sejauh ini aplikasi ini cukup bagus, tetapi beberapa fitur premium terlalu mahal.",
+        "like": 97
+    }
+}
