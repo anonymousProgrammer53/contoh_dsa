@@ -3,30 +3,34 @@
         "username": "Monkey D. Luffy",
         "profile_picture": "https://example.com/luffy.jpg",
         "text": "Aku akan menjadi Raja Bajak Laut!",
-        "comment": 18,
+        "date": "10 detik yang lalu",
+        "comment": 58,
         "pin": 7,
-        "share": 2
+        "share": 21
     },
     "post2": {
         "username": "Shanks",
         "profile_picture": "https://example.com/shanks.jpg",
         "text": "Luka di punggung adalah aib bagi seorang pendekar pedang.",
+        "date": "3 menit yang lalu",
         "comment": 22,
         "pin": 9,
-        "share": 4
+        "share": 42
     },
     "post3": {
         "username": "Sakazuki (Akainu)",
         "profile_picture": "https://example.com/akainu.jpg",
         "text": "Keadilan akan menang, katamu? Tentu saja!",
+        "date": "15 menit yang lalu",
         "comment": 15,
-        "pin": 6,
+        "pin": 3,
         "share": 3
     },
     "post4": {
         "username": "Roronoa Zoro",
         "profile_picture": "https://example.com/zoro.jpg",
         "text": "Aku tidak peduli apa kata dunia. Aku akan menjadi pendekar pedang terhebat!",
+        "date": "1 jam yang lalu",
         "comment": 24,
         "pin": 10,
         "share": 5
@@ -35,14 +39,16 @@
         "username": "Vinsmoke Sanji",
         "profile_picture": "https://example.com/sanji.jpg",
         "text": "Seorang pria memaafkan kebohongan seorang wanita.",
+        "date": "3 jam yang lalu",
         "comment": 19,
         "pin": 8,
-        "share": 2
+        "share": 1
     },
     "post6": {
         "username": "Nico Robin",
         "profile_picture": "https://example.com/robin.jpg",
         "text": "Orang bodoh yang tidak menghormati sejarah akan mengulanginya.",
+        "date": "6 jam yang lalu",
         "comment": 21,
         "pin": 7,
         "share": 3
@@ -51,22 +57,25 @@
         "username": "Usopp",
         "profile_picture": "https://example.com/usopp.jpg",
         "text": "Keberanian bukan berarti tidak takut, tetapi menghadapi ketakutan itu.",
+        "date": "10 jam yang lalu",
         "comment": 16,
-        "pin": 5,
-        "share": 1
+        "pin": 14,
+        "share": 2
     },
     "post8": {
         "username": "Franky",
         "profile_picture": "https://example.com/franky.jpg",
         "text": "Super!! Seorang pria adalah seseorang yang berdiri dengan kuat!",
+        "date": "1 hari yang lalu",
         "comment": 14,
-        "pin": 4,
+        "pin": 6,
         "share": 1
     },
     "post9": {
         "username": "Brook",
         "profile_picture": "https://example.com/brook.jpg",
-        "text": "Yohoho! Bahkan dalam kematian, jiwa seorang musisi tetap bermain.",
+        "text": "Yohoho!",
+        "date": "2 hari yang lalu",
         "comment": 20,
         "pin": 9,
         "share": 4
@@ -75,6 +84,7 @@
         "username": "Trafalgar Law",
         "profile_picture": "https://example.com/law.jpg",
         "text": "Yang lemah tidak bisa memilih bagaimana mereka mati.",
+        "date": "3 hari yang lalu",
         "comment": 23,
         "pin": 11,
         "share": 5
