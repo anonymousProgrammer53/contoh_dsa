@@ -1,0 +1,440 @@
+.poppins-thin {
+    font-family: "Poppins", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+}
+
+.poppins-extralight {
+    font-family: "Poppins", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+}
+
+.poppins-light {
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.poppins-regular {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.poppins-medium {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.poppins-semibold {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.poppins-bold {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.poppins-extrabold {
+    font-family: "Poppins", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+}
+
+.poppins-black {
+    font-family: "Poppins", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+}
+
+.poppins-thin-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 100;
+    font-style: italic;
+}
+
+.poppins-extralight-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 200;
+    font-style: italic;
+}
+
+.poppins-light-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: italic;
+}
+
+.poppins-regular-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.poppins-medium-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: italic;
+}
+
+.poppins-semibold-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: italic;
+}
+
+.poppins-bold-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+}
+
+.poppins-extrabold-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 800;
+    font-style: italic;
+}
+
+.poppins-black-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 900;
+    font-style: italic;
+}
+
+.post-card {
+    position: relative;
+    background: linear-gradient(135deg, #1e1f2f, #3b2f4a);
+    padding: 1em;
+    padding-top: 0;
+    padding-bottom: 0;
+    z-index: 5;
+    border-radius: 10px;
+    max-width: 100%;
+    transition: 200ms ease-in-out;
+}
+
+.post-card__post {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.post-card__header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.post-card__profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+    border: 2px solid #C6E1ED;
+    background: linear-gradient(135deg, #1e1f2f, #3b2f4a);
+}
+
+.post-card__username {
+    color: #C6E1ED;
+    font-size: 0.9em;
+    font-weight: 600;
+}
+
+.post-card__body {
+    display: flex;
+    flex-direction: column;
+}
+
+.post-card__text {
+    margin: 0 10px 0 0;
+    white-space: pre-line;
+    color: #c0c3d7;
+    font-weight: 400;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+.post-card__date {
+    color: #C6E1ED;
+    font-size: 12px;
+}
+
+.post-card__footer {
+    position: relative;
+    width: 100%;
+    color: #9fa4aa;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: none;
+    margin-top: 10px;
+}
+
+.post-card__footer div {
+    margin-right: 1rem;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.post-card__footer svg {
+    margin-right: 5px;
+    height: 100%;
+    stroke: #9fa4aa;
+}
+
+/* From Uiverse.io by zanina-yassine */
+.comment-card {
+    width: 100%;
+    height: fit-content;
+    background-color: white;
+    border-radius: 17px 17px 27px 27px;
+    border: 1px solid #c0c3d7;
+}
+
+.comment-card_title {
+    width: 100%;
+    height: 50px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    border-bottom: 1px solid #f1f1f1;
+    font-weight: 700;
+    font-size: 13px;
+    color: #47484b;
+    margin-bottom: 20px;
+}
+
+.comment-card_title::after {
+    content: '';
+    width: 8ch;
+    height: 1px;
+    position: absolute;
+    bottom: -1px;
+    background-color: #47484b;
+}
+
+.comment-card_comments {
+    display: grid;
+    grid-template-columns: 35px 1fr;
+    gap: 20px;
+    padding: 20px 20px;
+}
+
+.comment-react {
+    width: 35px;
+    height: fit-content;
+    display: grid;
+    grid-template-columns: auto;
+    margin: 0;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+}
+
+.comment-react button {
+    width: 35px;
+    height: 35px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: 0;
+    outline: none;
+}
+
+.comment-react button:after {
+    content: '';
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    left: -2.5px;
+    top: -2.5px;
+    background-color: #f5356e;
+    border-radius: 50%;
+    z-index: 0;
+    transform: scale(0);
+}
+
+.comment-react button svg {
+    position: relative;
+    z-index: 9;
+}
+
+.comment-react button:hover:after {
+    animation: ripple 0.6s ease-in-out forwards;
+}
+
+.comment-react button:hover svg {
+    fill: #f5356e;
+}
+
+.comment-react button:hover svg path {
+    stroke: #f5356e;
+    fill: #f5356e;
+}
+
+.comment-react hr {
+    width: 80%;
+    height: 1px;
+    background-color: #dfe1e6;
+    margin: auto;
+    border: 0;
+}
+
+.comment-react span {
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    font-size: 13px;
+    font-weight: 600;
+    color: #707277;
+}
+
+.comment-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 0;
+    margin: 0;
+}
+
+.comment-container .user {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: 10px;
+}
+
+.comment-container .user .user-pic {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f1f1f1;
+    border-radius: 50%;
+}
+
+.comment-container .user .user-pic:after {
+    content: '';
+    width: 9px;
+    height: 9px;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    border-radius: 50%;
+    background-color: #0fc45a;
+    border: 2px solid #ffffff;
+}
+
+.comment-container .user .user-info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 3px;
+}
+
+.comment-container .user .user-info span {
+    font-weight: 700;
+    font-size: 12px;
+    color: #47484b;
+}
+
+.comment-container .user .user-info p {
+    font-weight: 600;
+    font-size: 10px;
+    color: #acaeb4;
+}
+
+.comment-container .comment-content {
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 600;
+    color: #5f6064;
+}
+
+.comment-card_text-box {
+    width: 100%;
+    height: fit-content;
+    background-color: #f1f1f1;
+    padding: 8px;
+    border-bottom-right-radius: 27px;
+    border-bottom-left-radius: 27px;
+}
+
+.comment-card_text-box .box-container {
+    background-color: #ffffff;
+    border-radius: 8px 8px 21px 21px;
+    padding: 8px;
+}
+
+.comment-card_text-box textarea {
+    width: 100%;
+    height: 56px;
+    resize: none;
+    background-color: white;
+    border: 0;
+    border-radius: 6px;
+    padding: 12px 12px 10px 12px;
+    font-size: 13px;
+    outline: none;
+    caret-color: #0a84ff;
+}
+
+.comment-card_text-box .formatting {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto 1fr;
+}
+
+.comment-card_text-box .formatting button {
+    width: 30px;
+    height: 30px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border-radius: 50%;
+    border: 0;
+    outline: none;
+}
+
+.comment-card_text-box .formatting button:hover {
+    background-color: #f1f1f1;
+}
+
+.comment-card_text-box .formatting .send {
+    width: 30px;
+    height: 30px;
+    background-color: #0a84ff;
+    margin: 0 0 0 auto;
+}
+
+.comment-card_text-box .formatting .send:hover {
+    background-color: #026eda;
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0);
+        opacity: 0.6;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
