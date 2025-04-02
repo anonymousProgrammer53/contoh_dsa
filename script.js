@@ -7,7 +7,9 @@ const componentPostCardPost = (parentComponent, { username, profile_picture, tex
     div.classList.add('post-card__post');
     div.innerHTML = `
     <div class="post-card__header">
-        <div alt="Profile" class="post-card__profile-pic"></div>
+        <div alt="Profile" class="post-card__profile-pic">
+            <img src="${profile_picture}">
+        </div>
         <span class="post-card__username">${username}</span>
     </div>
     <div class="post-card__body">
@@ -86,40 +88,28 @@ const componentCommentCardComment = (parentComponent, { username, date, text, li
     div.classList.add('comment-card_comments');
     div.innerHTML = `
     <div class="comment-react">
-                                        <button>
-                                            <svg fill="none" viewBox="0 0 24 24" height="16" width="16"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path fill="#707277" stroke-linecap="round" stroke-width="2"
-                                                    stroke="#707277"
-                                                    d="M19.4626 3.99415C16.7809 2.34923 14.4404 3.01211 13.0344 4.06801C12.4578 4.50096 12.1696 4.71743 12 4.71743C11.8304 4.71743 11.5422 4.50096 10.9656 4.06801C9.55962 3.01211 7.21909 2.34923 4.53744 3.99415C1.01807 6.15294 0.221721 13.2749 8.33953 19.2834C9.88572 20.4278 10.6588 21 12 21C13.3412 21 14.1143 20.4278 15.6605 19.2834C23.7783 13.2749 22.9819 6.15294 19.4626 3.99415Z">
-                                                </path>
-                                            </svg>
-                                        </button>
-                                        <hr>
-                                        <span>${like}</span>
-                                    </div>
-                                    <div class="comment-container">
-                                        <div class="user">
-                                            <div class="user-pic">
-                                                <svg fill="none" viewBox="0 0 24 24" height="20" width="20"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path stroke-linejoin="round" fill="#707277" stroke-linecap="round"
-                                                        stroke-width="2" stroke="#707277"
-                                                        d="M6.57757 15.4816C5.1628 16.324 1.45336 18.0441 3.71266 20.1966C4.81631 21.248 6.04549 22 7.59087 22H16.4091C17.9545 22 19.1837 21.248 20.2873 20.1966C22.5466 18.0441 18.8372 16.324 17.4224 15.4816C14.1048 13.5061 9.89519 13.5061 6.57757 15.4816Z">
-                                                    </path>
-                                                    <path stroke-width="2" fill="#707277" stroke="#707277"
-                                                        d="M16.5 6.5C16.5 8.98528 14.4853 11 12 11C9.51472 11 7.5 8.98528 7.5 6.5C7.5 4.01472 9.51472 2 12 2C14.4853 2 16.5 4.01472 16.5 6.5Z">
-                                                    </path>
-                                                </svg>
-                                            </div>
-                                            <div class="user-info">
-                                                <span>${username}</span>
-                                                <p>${date}</p>
-                                            </div>
-                                        </div>
-                                        <p class="comment-content">${text}</p>
-                                    </div>
-    `
+        <button>
+            <svg fill="none" viewBox="0 0 24 24" height="16" width="16" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#707277" stroke-linecap="round" stroke-width="2" stroke="#707277" d="M19.4626 3.99415C16.7809 2.34923 14.4404 3.01211 13.0344 4.06801C12.4578 4.50096 12.1696 4.71743 12 4.71743C11.8304 4.71743 11.5422 4.50096 10.9656 4.06801C9.55962 3.01211 7.21909 2.34923 4.53744 3.99415C1.01807 6.15294 0.221721 13.2749 8.33953 19.2834C9.88572 20.4278 10.6588 21 12 21C13.3412 21 14.1143 20.4278 15.6605 19.2834C23.7783 13.2749 22.9819 6.15294 19.4626 3.99415Z"></path>
+            </svg>
+        </button><hr>
+        <span>${like}</span>
+    </div>
+    <div class="comment-container">
+        <div class="user">
+            <div class="user-pic">
+                <svg fill="none" viewBox="0 0 24 24" height="20" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linejoin="round" fill="#707277" stroke-linecap="round" stroke-width="2" stroke="#707277" d="M6.57757 15.4816C5.1628 16.324 1.45336 18.0441 3.71266 20.1966C4.81631 21.248 6.04549 22 7.59087 22H16.4091C17.9545 22 19.1837 21.248 20.2873 20.1966C22.5466 18.0441 18.8372 16.324 17.4224 15.4816C14.1048 13.5061 9.89519 13.5061 6.57757 15.4816Z"></path>
+                    <path stroke-width="2" fill="#707277" stroke="#707277" d="M16.5 6.5C16.5 8.98528 14.4853 11 12 11C9.51472 11 7.5 8.98528 7.5 6.5C7.5 4.01472 9.51472 2 12 2C14.4853 2 16.5 4.01472 16.5 6.5Z"></path>
+                </svg>
+            </div>
+            <div class="user-info">
+                <span>${username}</span>
+                <p>${date}</p>
+            </div>
+        </div>
+        <p class="comment-content">${text}</p>
+    </div>`
     parentComponent.appendChild(div);
     return div;
 }
@@ -133,7 +123,7 @@ const targetElement = (target) => {
     target.setAttribute('aria-current', 'page');
 }
 
-const fetchData = (data, prosesType, callback) => {
+const fetchData = (data, prosesType, callback, property = null) => {
     fetch(data)
         .then(response => {
             if (!response.ok) {
@@ -170,7 +160,7 @@ const fetchData = (data, prosesType, callback) => {
                     }
                     callback(minVal);
                 }
-            } else if (prosesType === 'latest') {
+            } else if (prosesType === 'latest' || prosesType === 'first') {
                 const convertToSeconds = (dateString) => {
                     const timeUnits = {
                         "detik": 1,
@@ -180,16 +170,14 @@ const fetchData = (data, prosesType, callback) => {
                     };
 
                     const match = dateString.match(/(\d+)\s+(detik|menit|jam|hari)/);
-
                     if (match) {
                         let value = parseInt(match[1]);
                         let unit = match[2];
 
                         return value * timeUnits[unit];
                     }
-
                     return null;
-                }
+                };
 
                 if (Object.values(data).length === 0) {
                     console.log('Data kosong');
@@ -197,93 +185,34 @@ const fetchData = (data, prosesType, callback) => {
                     let minVal = Object.values(data)[0];
                     for (let i of Object.values(data)) {
                         let postTime = convertToSeconds(i.date);
-                        if (postTime !== null && postTime < convertToSeconds(minVal.date)) {
-                            minVal = i;
+                        if (postTime !== null) {
+                            if ((prosesType === 'latest' && postTime < convertToSeconds(minVal.date)) ||
+                                (prosesType === 'first' && postTime > convertToSeconds(minVal.date))) {
+                                minVal = i;
+                            }
                         }
                     }
                     callback(minVal);
                 }
-            } else if (prosesType === 'first') {
-                const convertToSeconds = (dateString) => {
-                    const timeUnits = {
-                        "detik": 1,
-                        "menit": 60,
-                        "jam": 3600,
-                        "hari": 86400
-                    };
-
-                    const match = dateString.match(/(\d+)\s+(detik|menit|jam|hari)/);
-
-                    if (match) {
-                        let value = parseInt(match[1]);
-                        let unit = match[2];
-
-                        return value * timeUnits[unit];
-                    }
-
-                    return null;
-                }
-
+            } else if (['least', 'most'].includes(prosesType) && property) {
                 if (Object.values(data).length === 0) {
                     console.log('Data kosong');
                 } else {
                     let minVal = Object.values(data)[0];
                     for (let i of Object.values(data)) {
-                        let postTime = convertToSeconds(i.date);
-                        if (postTime !== null && postTime > convertToSeconds(minVal.date)) {
-                            minVal = i;
+                        if (typeof i[property] === "number") {
+                            if ((prosesType === 'least' && i[property] < minVal[property]) ||
+                                (prosesType === 'most' && i[property] > minVal[property])) {
+                                minVal = i;
+                            }
                         }
                     }
                     callback(minVal);
                 }
-            } else if (prosesType === 'least') {
-                fetch('./dataPost.json')
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error('Gagal mengambil data');
-                        }
-                        return response.json();
-                    })
-                    .then(data => {
-                        if (Object.values(data).length === 0) {
-                            console.log('Data kosong');
-                        } else {
-                            let minVal = Object.values(data)[0];
-                            for (let i of Object.values(data)) {
-                                if (typeof i.comment === "number" && i.comment < minVal.comment) {
-                                    minVal = i;
-                                }
-                            }
-                            callback(minVal);
-                        }
-                    })
-                    .catch(error => console.error('Error:', error));
-            } else if (prosesType === 'most') {
-                fetch('./dataPost.json')
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error('Gagal mengambil data');
-                        }
-                        return response.json();
-                    })
-                    .then(data => {
-                        if (Object.values(data).length === 0) {
-                            console.log('Data kosong');
-                        } else {
-                            let minVal = Object.values(data)[0];
-                            for (let i of Object.values(data)) {
-                                if (typeof i.comment === "number" && i.comment > minVal.comment) {
-                                    minVal = i;
-                                }
-                            }
-                            callback(minVal);
-                        }
-                    })
-                    .catch(error => console.error('Error:', error));
             }
         })
         .catch(error => console.error('Error:', error));
-}
+};
 
 document.addEventListener("DOMContentLoaded", () => {
     fetchData('./dataPost.json', 'displayAll', (item) => {
@@ -392,7 +321,7 @@ document.querySelectorAll('section')[0].querySelector('ul').addEventListener('cl
                 pin: item.pin,
                 share: item.share
             });
-        });
+        }, 'comment');
     } else if (e.target.tagName === 'A' && e.target.textContent.trim() === 'Komentar Terbanyak') {
         targetElement(e.target);
         componentPostCard().innerHTML = '';
@@ -406,171 +335,63 @@ document.querySelectorAll('section')[0].querySelector('ul').addEventListener('cl
                 pin: item.pin,
                 share: item.share
             });
-        });
+        }, 'comment');
     } else if (e.target.tagName === 'A' && e.target.textContent.trim() === 'Pin Tersedikit') {
         targetElement(e.target);
         componentPostCard().innerHTML = '';
-        fetch('./dataPost.json')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Gagal mengambil data');
-                }
-                return response.json();
-            })
-            .then(data => {
-                let myArray = Object.values(data);
-
-                if (myArray.length === 0) {
-                    console.log('Data kosong');
-                } else {
-                    let minVal = myArray[0]; // Inisialisasi dengan elemen pertama
-
-                    for (let i of myArray) {
-                        if (typeof i.pin === "number" && i.pin < minVal.pin) { // Pastikan `comment` adalah angka
-                            minVal = i; // Simpan objek dengan nilai comment terkecil
-                        }
-                    }
-
-                    componentPostCard().innerHTML = '';
-
-                    // Menampilkan hanya postingan dengan teks terpendek
-                    componentPostCardPost(componentPostCard(), {
-                        username: minVal.username,
-                        profile_picture: minVal.profile_picture,
-                        text: minVal.text,
-                        date: minVal.date,
-                        comment: minVal.comment,
-                        pin: minVal.pin,
-                        share: minVal.share
-                    });
-
-                    console.log(minVal);
-                }
-            })
-            .catch(error => console.error('Error:', error));
+        fetchData('./dataPost.json', 'least', (item) => {
+            componentPostCardPost(componentPostCard(), {
+                username: item.username,
+                profile_picture: item.profile_picture,
+                text: item.text,
+                date: item.date,
+                comment: item.comment,
+                pin: item.pin,
+                share: item.share
+            });
+        }, 'pin');
     } else if (e.target.tagName === 'A' && e.target.textContent.trim() === 'Pin Terbanyak') {
         targetElement(e.target);
         componentPostCard().innerHTML = '';
-        fetch('./dataPost.json')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Gagal mengambil data');
-                }
-                return response.json();
-            })
-            .then(data => {
-                let myArray = Object.values(data);
-
-                if (myArray.length === 0) {
-                    console.log('Data kosong');
-                } else {
-                    let minVal = myArray[0]; // Inisialisasi dengan elemen pertama
-
-                    for (let i of myArray) {
-                        if (typeof i.pin === "number" && i.pin > minVal.pin) { // Pastikan `comment` adalah angka
-                            minVal = i; // Simpan objek dengan nilai comment terkecil
-                        }
-                    }
-
-                    componentPostCard().innerHTML = '';
-
-                    // Menampilkan hanya postingan dengan teks terpendek
-                    componentPostCardPost(componentPostCard(), {
-                        username: minVal.username,
-                        profile_picture: minVal.profile_picture,
-                        text: minVal.text,
-                        date: minVal.date,
-                        comment: minVal.comment,
-                        pin: minVal.pin,
-                        share: minVal.share
-                    });
-
-                    console.log(minVal);
-                }
-            })
-            .catch(error => console.error('Error:', error));
+        fetchData('./dataPost.json', 'most', (item) => {
+            componentPostCardPost(componentPostCard(), {
+                username: item.username,
+                profile_picture: item.profile_picture,
+                text: item.text,
+                date: item.date,
+                comment: item.comment,
+                pin: item.pin,
+                share: item.share
+            });
+        }, 'pin');
     } else if (e.target.tagName === 'A' && e.target.textContent.trim() === 'Share Tersedikit') {
         targetElement(e.target);
         componentPostCard().innerHTML = '';
-        fetch('./dataPost.json')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Gagal mengambil data');
-                }
-                return response.json();
-            })
-            .then(data => {
-                let myArray = Object.values(data);
-
-                if (myArray.length === 0) {
-                    console.log('Data kosong');
-                } else {
-                    let minVal = myArray[0]; // Inisialisasi dengan elemen pertama
-
-                    for (let i of myArray) {
-                        if (typeof i.share === "number" && i.share < minVal.share) { // Pastikan `comment` adalah angka
-                            minVal = i; // Simpan objek dengan nilai comment terkecil
-                        }
-                    }
-
-                    componentPostCard().innerHTML = '';
-
-                    // Menampilkan hanya postingan dengan teks terpendek
-                    componentPostCardPost(componentPostCard(), {
-                        username: minVal.username,
-                        profile_picture: minVal.profile_picture,
-                        text: minVal.text,
-                        date: minVal.date,
-                        comment: minVal.comment,
-                        pin: minVal.pin,
-                        share: minVal.share
-                    });
-
-                    console.log(minVal);
-                }
-            })
-            .catch(error => console.error('Error:', error));
+        fetchData('./dataPost.json', 'least', (item) => {
+            componentPostCardPost(componentPostCard(), {
+                username: item.username,
+                profile_picture: item.profile_picture,
+                text: item.text,
+                date: item.date,
+                comment: item.comment,
+                pin: item.pin,
+                share: item.share
+            });
+        }, 'share');
     } else if (e.target.tagName === 'A' && e.target.textContent.trim() === 'Share Terbanyak') {
         targetElement(e.target);
         componentPostCard().innerHTML = '';
-        fetch('./dataPost.json')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Gagal mengambil data');
-                }
-                return response.json();
-            })
-            .then(data => {
-                let myArray = Object.values(data);
-
-                if (myArray.length === 0) {
-                    console.log('Data kosong');
-                } else {
-                    let minVal = myArray[0]; // Inisialisasi dengan elemen pertama
-
-                    for (let i of myArray) {
-                        if (typeof i.share === "number" && i.share > minVal.share) { // Pastikan `comment` adalah angka
-                            minVal = i; // Simpan objek dengan nilai comment terkecil
-                        }
-                    }
-
-                    componentPostCard().innerHTML = '';
-
-                    // Menampilkan hanya postingan dengan teks terpendek
-                    componentPostCardPost(componentPostCard(), {
-                        username: minVal.username,
-                        profile_picture: minVal.profile_picture,
-                        text: minVal.text,
-                        date: minVal.date,
-                        comment: minVal.comment,
-                        pin: minVal.pin,
-                        share: minVal.share
-                    });
-
-                    console.log(minVal);
-                }
-            })
-            .catch(error => console.error('Error:', error));
+        fetchData('./dataPost.json', 'most', (item) => {
+            componentPostCardPost(componentPostCard(), {
+                username: item.username,
+                profile_picture: item.profile_picture,
+                text: item.text,
+                date: item.date,
+                comment: item.comment,
+                pin: item.pin,
+                share: item.share
+            });
+        }, 'share');
     }
 });
 
@@ -633,7 +454,25 @@ document.querySelectorAll('section')[1].querySelector('ul').addEventListener('cl
         });
     } else if (e.target.tagName === 'A' && e.target.textContent.trim() === 'Like Tersedikit') {
         targetElement(e.target);
+        componentCommentCardContainer().innerHTML = ``;
+        fetchData('./dataComment.json', 'least', (item) => {
+            componentCommentCardComment(componentCommentCardContainer(), {
+                username: item.username,
+                date: item.date,
+                text: item.text,
+                like: item.like
+            });
+        }, 'like');
     } else if (e.target.tagName === 'A' && e.target.textContent.trim() === 'Like Terbanyak') {
         targetElement(e.target);
+        componentCommentCardContainer().innerHTML = ``;
+        fetchData('./dataComment.json', 'most', (item) => {
+            componentCommentCardComment(componentCommentCardContainer(), {
+                username: item.username,
+                date: item.date,
+                text: item.text,
+                like: item.like
+            });
+        }, 'like');
     }
 });
